@@ -1,0 +1,23 @@
+{
+  "name": "jeffryafandi.tk",
+  "version": "1.0.0",
+  "description": "Ice Cream Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node",
+    "icecream"
+  ],
+  "author": "Akbar Jeffry Afandi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "^0.0.0",
+    "ejs": "^3.1.5"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
