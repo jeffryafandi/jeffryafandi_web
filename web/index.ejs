@@ -16,8 +16,9 @@
   <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/732008935791263914/757795622337118318/Screenshot_2020-09-22-09-45-53-049_com.android.chrome-picsay.png" type="image/x-icon" />
   <title>jeffryafandi | Home</title>
   <script>
-  function page(){
-  window.location.href = `/page/${document.getElementById('ser').value}`
+  function url(){
+  const key = document.getElementById("");
+  window.location.href = '/#' +key.value;
   }
   </script>
 </head>
@@ -56,7 +57,7 @@
     <div class="container-fluid">
       <form class="d-flex" id="search">
         <input id="ser" class="form-control mr-2" type="text" value="" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" onclick="page()">Search</button>
+        <button class="btn btn-outline-success" onclick="url()" autocomplete="off" type="search" placeholder="Id Tugas" minlength="1" required>Search</button>
       </form>
     </div>
   </nav>
@@ -68,7 +69,7 @@
        </h1>
        <p>Anda bisa melihat" isi website di navbar, atau scroll ke bawah untuk melihat - lihat tugas yang ada. Next update: perbaikan view, menambah database dan menggabungkan ddngan telegram bot untuk web control</p>
      </div>
-      <div class="card text-center">
+      <div id="1" class="card text-center">
         <div class="card-header">
           Bahasa Indonesia<sup><span class="badge bg-info">#2</span></sup>
         </div>
@@ -82,7 +83,7 @@
         </div>
       </div>
      <!--Aaaaa -->
-     <div class="card text-center">
+     <div id="1" class="card text-center">
        <div class="card-header">
          Bahasa Indonesia<sup><span class="badge bg-info">#1</span></sup>
        </div>
