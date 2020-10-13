@@ -15,11 +15,14 @@ app.get("/p200ok", function(req, res) {
   res.sendStatus(200);
   console.log("Nah kan Kena Ping...")
 });
-app.get("/tugas/b-indo-88-89", function(req, res) {
-  res.render("tugas/001.ejs")
+app.get("/tugas/1", function(req, res) {
+  res.render("tugas/1.ejs")
 })
-app.get("/tugas/bi-23-9", function(req, res) {
-  res.render("tugas/002.ejs")
+app.get("/tugas/2", function(req, res) {
+  res.render("tugas/2.ejs")
+})
+app.get("/tugas/3", function(req, res) {
+  res.render("tugas/3.ejs")
 })
 app.get("/", function(req, res) {
   res.render("index.ejs")
