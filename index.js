@@ -18,10 +18,6 @@ app.get("/p200ok", function(req, res) {
 app.get("/", function(req, res) {
   res.render("index.ejs")
 })
-app.get('*', function(req, res) {
-  res.render("404")
-  res.sendStatus(404)
-});
 app.get("/lisensi", function(req, res) {
   //Tugas Maping
   res.render("lisensi.ejs")
@@ -35,4 +31,9 @@ app.get("/tugas/2", function(req, res) {
 app.get("/tugas/3", function(req, res) {
   res.render("tugas/3.ejs")
 })
+//404 err
+app.get('*', function(req, res) {
+  res.render("404")
+  res.sendStatus(404)
+});
 app.listen(process.env.PORT)
