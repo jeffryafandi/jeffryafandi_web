@@ -19,7 +19,8 @@ app.get("/", function(req, res) {
   res.render("index.ejs")
 })
 app.get('*', function(req, res) {
-  res.send('Halaman tak dapat ditemukan, Kembali ke beranda : https://jeffryafandi.tk/', 404);
+  res.render("404")
+  res.sendStatus(404)
 });
 app.get("/lisensi", function(req, res) {
   //Tugas Maping
