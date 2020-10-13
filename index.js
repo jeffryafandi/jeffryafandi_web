@@ -15,6 +15,16 @@ app.get("/p200ok", function(req, res) {
   res.sendStatus(200);
   console.log("Nah kan Kena Ping...")
 });
+app.get("/", function(req, res) {
+  res.render("index.ejs")
+})
+app.get('*', function(req, res) {
+  res.send('Halaman tak dapat ditemukan, Kembali ke beranda : https://jeffryafandi.tk/', 404);
+});
+app.get("/lisensi", function(req, res) {
+  //Tugas Maping
+  res.render("lisensi.ejs")
+})
 app.get("/tugas/1", function(req, res) {
   res.render("tugas/1.ejs")
 })
@@ -23,11 +33,5 @@ app.get("/tugas/2", function(req, res) {
 })
 app.get("/tugas/3", function(req, res) {
   res.render("tugas/3.ejs")
-})
-app.get("/", function(req, res) {
-  res.render("index.ejs")
-})
-app.get("/lisensi", function(req, res) {
-  res.render("lisensi.ejs")
 })
 app.listen(process.env.PORT)
