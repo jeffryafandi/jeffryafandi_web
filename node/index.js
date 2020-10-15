@@ -8,6 +8,7 @@ var mt = false;
 const database = require("../database.js");
 database.init();
 require("./telegram.js");
+const util = require("./util.js")
 app.set("views", path.join(__dirname, "../web"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -23,7 +24,7 @@ if(mt === true){
     res.render("maintenance.ejs")
   })}else
 app.get("/", function(req, res) {
-  res.render("index.ejs")
+  res.render("index.ejs", {util: util})
 })
 app.get("/lisensi", function(req, res) {
   //Tugas Maping
