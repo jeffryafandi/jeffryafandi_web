@@ -60,7 +60,7 @@
   </nav>
   <div>
      <div class="shadow-lg p-3 mb-5 bg-white rounded" style="background-color: #e3f2fd;">
-       <marquee class="rounded shadow-sm" style="background: #FF5572;color: #fff"><%= util.db("web").then(async(db)=>{return db.berita}) %></marquee>
+       <marquee class="rounded shadow-sm" style="background: #FF5572;color: #fff"><%= util.db().then(m=>m.berita) %></marquee>
        <h1>
          <center>Selamat Datang</center>
        </h1>
