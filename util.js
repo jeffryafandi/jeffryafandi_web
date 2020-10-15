@@ -1,7 +1,5 @@
 const snek = require("node-superfetch");
-const discord = require("discord.js");
 const nodeVersion = parseInt(process.versions.node.split("."), 10);
-const config = require("./config.json");
 
 class Util {
   static randomRange(min, max) {
