@@ -8,7 +8,6 @@ var mt = false;
 const database = require("../database.js");
 database.init();
 const mongoose = require("mongoose")
-const chatId = msg.chat.id;
 const Player = require("../models/web.js")
 const newPlayer = new Player({
   _id: mongoose.Types.ObjectId(),
