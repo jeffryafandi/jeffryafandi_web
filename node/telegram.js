@@ -1,4 +1,4 @@
-const TelegramBot = require('node-telegram-bot-api');
+/*const TelegramBot = require('node-telegram-bot-api');
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = '1249511986:AAHOFLw475kqwUciLA8mFr2nEo2SHJEFm3s';
@@ -30,4 +30,4 @@ bot.on('message', (msg) => {
   // send a message to the chat acknowledging receipt of their message
   bot.sendMessage(chatId, 'Received your message');
 });
-})
+})*/
