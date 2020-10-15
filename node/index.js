@@ -7,21 +7,6 @@ var bodyParser = require("body-parser");
 var mt = false;
 const database = require("../database.js");
 database.init();
-const mongoose = require("mongoose")
-const Player = require("../models/web.js")
-const newPlayer = new Player({
-  _id: mongoose.Types.ObjectId(),
-  id: "web",
-  maintenance: false,
-  berita: "Halooo"
-
-
-});
-
-newPlayer
-  .save()
-  .then(result => console.log(result))
-  .catch(err => console.error(err));
 require("./telegram.js");
 app.set("views", path.join(__dirname, "../web"));
 app.set("view engine", "ejs");
