@@ -19,11 +19,7 @@ app.get("/p200ok", function(req, res) {
   res.sendStatus(200);
   console.log("Nah kan Kena Ping...")
 });
-const webb = require("../models/web.js");
-static async (){
-  const db = await webb.findOne({id: "web"})
-
-if(db.maintenance === true){
+if(mt === true){
   app.get("*", function(req, res) {
     res.render("maintenance.ejs")
   })}else
@@ -60,4 +56,3 @@ app.get('*', function(req, res) {
   res.sendStatus(404)
 });
 app.listen(process.env.PORT)
-}
