@@ -28,7 +28,9 @@ app.get("/lisensi", function(req, res) {
 })
 
 
-
+app.get("/tugas/5", function(req, res) {
+  res.render("tugas/5.ejs")
+})
 app.get("/tugas/4", function(req, res) {
   res.render("tugas/4.ejs")
 })
