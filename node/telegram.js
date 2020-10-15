@@ -11,7 +11,6 @@ bot.onText(/\/createdb/, (msg) => {
 });
 
 bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
 const mongoose = require("mongoose")
 const chatId = msg.chat.id;
 
