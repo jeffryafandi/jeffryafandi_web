@@ -5,6 +5,8 @@ const app = express();
 const path = require("path");
 var bodyParser = require("body-parser");
 var mt = false;
+const database = requure("../../database.js");
+database.init();
 require("./telegram.js");
 app.set("views", path.join(__dirname, "../web"));
 app.set("view engine", "ejs");
