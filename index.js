@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 var bodyParser = require("body-parser");
-var mt = true
+var mt = false
 app.set("views", path.join(__dirname, "/web"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
