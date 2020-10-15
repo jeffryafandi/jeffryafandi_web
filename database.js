@@ -11,7 +11,7 @@ module.exports = {
       family: 4
     };
 
-    mongoose.connect('mongodb+srv://admin:tahuasin@cluster0.a6ww9.mongodb.net/jeffryafandi?retryWrites=true&w=majority', dbOptions);
+    mongoose.connect('mongodb+srv://admin:tahuasin1@cluster0.57uru.mongodb.net/jeffryafandi?retryWrites=true&w=majority', dbOptions);
     mongoose.set('useFindAndModify', false);
     mongoose.Promise = global.Promise;
 
