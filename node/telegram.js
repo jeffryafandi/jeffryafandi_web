@@ -1,32 +1,29 @@
 const TelegramBot = require('node-telegram-bot-api');
 
+// replace the value below with the Telegram token you receive from @BotFather
 const token = '1249511986:AAHOFLw475kqwUciLA8mFr2nEo2SHJEFm3s';
 
+// Create a bot that uses 'polling' to fetch new updates
+const bot = new TelegramBot(token, { polling: true });
 
-const bot = new TelegramBot(token, { polling: false });
+// Matches "/echo [whatever]"
+bot.onText(/\/echo (.+)/, (msg, match) => {
+  // 'msg' is the received Message from Telegram
+  // 'match' is the result of executing the regexp above on the text content
+  // of the message
 
-bot.onText(/\/createdb/, (msg) => {
-  
-  bot.sendMessage(chatId, "mantap");
+  const chatId = msg.chat.id;
+  const resp = match[1]; // the captured "whatever"
+
+  // send back the matched "whatever" to the chat
+  bot.sendMessage(chatId, resp);
 });
 
+// Listen for any kind of message. There are different kinds of
+// messages.
 bot.on('message', (msg) => {
-const mongoose = require("mongoose")
-const chatId = msg.chat.id;
+  const chatId = msg.chat.id;
 
-const newPlayer = new Player({
-  _id: mongoose.Types.ObjectId(),
-  id: "web",
-  maintenance: false,
-  berita: "Halooo"
-
-
-});
-
-newPlayer
-  .save()
-  .then(result => console.log(result))
-  .catch(err => console.error(err));
+  // send a message to the chat acknowledging receipt of their message
   bot.sendMessage(chatId, 'Received your message');
 });
-module.expots = bot;
