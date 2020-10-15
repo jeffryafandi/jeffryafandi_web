@@ -7,9 +7,7 @@ class Util {
   }
   static async db(){
     const player = require("./models/web.js");
-    return await player.findOne({id: "web"}, (err, gg) => {
-      if (err) return console.error(err)
-    })
+    return await player.findOne({id: "web"})
   }
   static async hastebin(text) {
     const { body } = await snek
