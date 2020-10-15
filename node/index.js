@@ -8,7 +8,7 @@ var mt = false;
 const database = require("../database.js");
 database.init();
 require("./telegram.js");
-const util = require("./util.js")
+const util = require("../util.js")
 app.set("views", path.join(__dirname, "../web"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
