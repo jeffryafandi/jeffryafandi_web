@@ -5,11 +5,11 @@ const app = express();
 const path = require("path");
 var bodyParser = require("body-parser");
 var mt = false
-app.set("views", path.join(__dirname, "/web"));
+app.set("views", path.join(__dirname, "../web"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use('/public', express.static('public'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '../public'));
 // Website Maping__________________________
 app.get("/p200ok", function(req, res) {
   res.sendStatus(200);
