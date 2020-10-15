@@ -20,7 +20,7 @@ app.get("/p200ok", function(req, res) {
   res.sendStatus(200);
   console.log("Nah kan Kena Ping...")
 });
-if(mt === true){
+if(db.maintenance === true){
   app.get("*", function(req, res) {
     res.render("maintenance.ejs")
   })}else
