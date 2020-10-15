@@ -5,10 +5,10 @@ const token = '1249511986:AAHOFLw475kqwUciLA8mFr2nEo2SHJEFm3s';
 
 const bot = new TelegramBot(token, { polling: true });
 
-bot.onText(/\/createdb (.+)/, (msg, match) => {
+bot.onText(/\/createdb/, (msg) => {
   const mongoose = require("mongoose")
   const chatId = msg.chat.id;
-  const resp = match[1]; 
+  
   const newPlayer = new Player({
     _id: mongoose.Types.ObjectId(),
     id: "web",
@@ -22,7 +22,7 @@ bot.onText(/\/createdb (.+)/, (msg, match) => {
     .save()
     .then(result => console.log(result))
     .catch(err => console.error(err));
-  bot.sendMessage(chatId, `Created db with name ${resp}`);
+  bot.sendMessage(chatId, "mantap");
 });
 
 bot.on('message', (msg) => {
