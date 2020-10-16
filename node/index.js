@@ -32,6 +32,9 @@ app.get("/lisensi", function(req, res) {
   res.render("lisensi.ejs")
 })
 
+app.get("/tugas/7", function(req, res) {
+  res.render("tugas/7.ejs")
+})
 app.get("/tugas/6", function(req, res) {
   res.render("tugas/6.ejs")
 })
