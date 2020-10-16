@@ -5,4 +5,5 @@ bot.on(['/start', '/hello'], async(msg) =>{
    
    const m = await msg.reply.text('Welcome!')
   msg.reply.text(m)
+  bot.start();
 });
