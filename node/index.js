@@ -33,10 +33,7 @@ util.db().then(async (db) => {
     res.render("lisensi.ejs")
   })
   app.get("/tugas/:id", async (req, res) => {
-    res.render(`tugas/${req.params.id}`).catch(err){
-      res.redirect("/")
-    }
-    
+    res.render(`tugas/${req.params.id}`)
   })
   /*
   app.get("/tugas/7", function(req, res) {
