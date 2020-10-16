@@ -17,7 +17,8 @@ bot.onText(/\/config/, async(msg, match) => {
 const db = await web.findOne({id: "web"})
   const chatId = msg.chat.id
   const args = msg.text.slice("/".length).trim().split(/ +/g);
-  bot.sendMessage(chatId, `Berita: ${db.berita}\nMaintenance: ${db.maintenance}`);
+  
+  bot.sendMessage(chatId, `Berita: ${db.berita}\nMaintenance: ${db.maintenance}\n${args[0]}`);
 })
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
