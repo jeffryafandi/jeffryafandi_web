@@ -34,7 +34,8 @@ util.db().then(async (db) => {
   })
   app.get("/tugas/:id", async (req, res) => {
     res.render(`tugas/${req.params.id}`)
-    if(!`../web/tugas/${req.params.id}`)return res.render("404")
+    let m = require(`../web/tugas/${req.params.id}`);
+    if(!m)return res.render("404")
   })
   /*
   app.get("/tugas/7", function(req, res) {
