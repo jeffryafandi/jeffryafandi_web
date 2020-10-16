@@ -32,7 +32,7 @@ app.get("/lisensi", function(req, res) {
   res.render("lisensi.ejs")
 })
 app.get("/tugas/:id", async (req, res) => {
-  res.render(`tugas/${req.params.id}`).catch(err => res.render("404"))
+  res.render(`tugas/${req.params.id}`)
 /*
 app.get("/tugas/7", function(req, res) {
   res.render("tugas/7.ejs")
