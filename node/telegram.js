@@ -17,19 +17,19 @@ bot.onText(/\/config/, async(msg, match) => {
 const db = await web.findOne({id: "web"})
   const chatId = msg.chat.id
   const args = msg.text.slice("/".length).trim().split(/ +/g);
-  if(!args[2]){
+  if(!args[1]){
    
   const conten = `Configurasi web jeffryafandi\nId: ${db.id}\nBerita: ${db.berita}\nMaintenance: ${db.maintenance}`
   bot.sendMessage(chatId, conten);
   }
-  if(args[2] === "berita"){
-    await db.updateOne({berita: args.slice(3).join(" ")})
-    bot.sendMessage(chatId, `Berita Diganti Ke:\n${args.slice(3).join(" ")}`);
-  }else if(args[2] === "maintenance"){
-    if(args[3] === "false"){
+  if (args[1] === "berita") {
+    await db.updateOne({ berita: args.slice(2).join(" ") })
+    bot.sendMessage(chatId, `Berita Diganti Ke:\n${args.slice(2).join(" ")}`);
+  } else if(args[1] === "maintenance"){
+    if(args[2] === "false"){
       await db.updateOne({maintenance: false})
       bot.sendMessage(chatId, `Maintenance Diupdate Ke "false"`);
-    }else if (args[3] === "true") {
+    }else if (args[2] === "true") {
       await db.updateOne({ maintenance: true })
       bot.sendMessage(chatId, `Maintenance Diupdate Ke "true"`);
     }else {
