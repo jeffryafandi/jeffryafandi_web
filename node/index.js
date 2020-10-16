@@ -32,10 +32,10 @@ util.db().then(async (db) => {
     //Tugas Maping
     res.render("lisensi.ejs")
   })
-  app.get("/tugas/:id", async (err, req, res) => {
-    if(err){
-      res.render("404")
-    }else res.render(`tugas/${req.params.id}`)
+  app.get("/tugas/:id", async (req, res) => {
+    res.render(`tugas/${req.params.id}`).catch(err){
+      res.redirect("/")
+    }
     
   })
   /*
