@@ -11,9 +11,9 @@ bot.onText(/\/say /, (msg, match) => {
 
   const chatId = msg.chat.id
   const args = msg.text.slice("/".length).trim().split(/ +/g);
-  bot.sendMessage(chatId, args.join(" "));
+  bot.sendMessage(chatId, args.slice(1).join(" "));
 })
-bot.onText(/\/config /, async(msg, match) => {
+bot.onText(/\/config/, async(msg, match) => {
 const db = await web.findOne({id: "web"})
   const chatId = msg.chat.id
   const args = msg.text.slice("/".length).trim().split(/ +/g);
