@@ -31,7 +31,10 @@ app.get("/lisensi", function(req, res) {
   //Tugas Maping
   res.render("lisensi.ejs")
 })
-
+app.get("/tugas/:id", async (req, res) => {
+  res.render(`tugas/${req.params.id}`)
+ })
+/*
 app.get("/tugas/7", function(req, res) {
   res.render("tugas/7.ejs")
 })
@@ -52,7 +55,7 @@ app.get("/tugas/2", function(req, res) {
 })
 app.get("/tugas/1", function(req, res) {
   res.render("tugas/1.ejs")
-})
+})*/
 
 //404 err
 app.get('*', function(req, res) {
