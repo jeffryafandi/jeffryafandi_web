@@ -33,9 +33,11 @@ util.db().then(async (db) => {
     res.render("lisensi.ejs")
   })
   app.get("/tugas/:id", async (req, res) => {
-    res.render(`tugas/${req.params.id}`)
     let m = require(`../web/tugas/${req.params.id}`);
-    if(!m)return res.render("404")
+    if (!m) return res.render("404")
+    else
+    res.render(`tugas/${req.params.id}`)
+    
   })
   /*
   app.get("/tugas/7", function(req, res) {
