@@ -1,4 +1,4 @@
-const TeleBot = require('telebot');
+/*const TeleBot = require('telebot');
 const bot = new TeleBot("1249511986:AAHOFLw475kqwUciLA8mFr2nEo2SHJEFm3s");
 
 bot.on(['/start', '/hello'], async(msg) =>{ 
@@ -7,3 +7,4 @@ bot.on(['/start', '/hello'], async(msg) =>{
   msg.reply.text(m)
   bot.start();
 });
+*/
