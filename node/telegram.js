@@ -11,7 +11,7 @@ bot.onText(/\/say /, (msg, match) => {
 
   const chatId = msg.chat.id;
   const resp = match[1];
-  msg.text.slice(bot.config.prefix.length).trim().split(/ +/g);
+  const args = msg.text.slice("/".length).trim().split(/ +/g);
   bot.sendMessage(chatId, args[1]);
 });
 
