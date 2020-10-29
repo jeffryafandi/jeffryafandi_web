@@ -7,7 +7,7 @@ var bodyParser = require("body-parser");
 var mt = false;
 const database = require("../database.js");
 database.init();
-require("./telegram.js");
+//require("./telegram.js");
 const util = require("../util.js");
 util.db().then(async (db) => {
   app.set("views", path.join(__dirname, "../web"));
