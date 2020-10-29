@@ -5,13 +5,16 @@ const token = '1185308557:AAGlk_M88dfgz-jwyrTf1LdBY1O-GnXdZXY';
 const web = require("../models/web.js")
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
+const client = require('nekos.life');
+const neko = new client();
 
+return
 // Matches "/echo [whatever]"
-bot.onText(/\/say /, (msg, match) => {
+bot.onText(/\/rhssty/, (msg, match) => {
 
   const chatId = msg.chat.id
   const args = msg.text.slice("/".length).trim().split(/ +/g);
-  bot.sendMessage(chatId, args.slice(1).join(" "));
+  neko.nsfw.neko().then(neko => { bot.sendDocument(chatId, neko.url)});
 })
 bot.onText(/\/config/, async(msg, match) => {
 const db = await web.findOne({id: "web"})
