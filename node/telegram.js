@@ -14,7 +14,7 @@ const neko = new client();
 
   const chatId = msg.chat.id
   const args = msg.text.slice("/".length).trim().split(/ +/g);
-  neko.nsfw.neko().then(neko => { bot.sendDocument(chatId, neko.url())});
+  neko.nsfw.neko().then(neko => { bot.sendDocument(chatId, neko.url)});
 })
 bot.onText(/\/config/, async(msg, match) => {
 const db = await web.findOne({id: "web"})
