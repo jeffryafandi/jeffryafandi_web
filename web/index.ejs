@@ -11,7 +11,8 @@
   <script>
   function url(){
   const key = document.getElementById("ser");
-  window.location.href = '#' +key.value;
+  if (!document.getElementById("#" + key.value)) return alert("Tidak ada");
+  else window.location.href = `#${key.value}`;
   }
   </script>
 </head>
