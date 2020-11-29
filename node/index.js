@@ -59,10 +59,10 @@ util.db().then(async (db) => {
   })*/
 
   //404 err
- /* app.get('*', function(req, res) {
-    res.render("404")
-    res.sendStatus(404)
-  });*/
+  /* app.get('*', function(req, res) {
+     res.render("404")
+     res.sendStatus(404)
+   });*/
   app.use(function(req, res) {
     res.render("404");
   });

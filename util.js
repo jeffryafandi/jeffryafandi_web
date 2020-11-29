@@ -1,4 +1,4 @@
-const snek = require("node-superfetch");
+const snek = require("node-superfetch")
 const nodeVersion = parseInt(process.versions.node.split("."), 10);
 
 class Util {
@@ -6,7 +6,7 @@ class Util {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   static async db(){
-    const player = require("./models/web.js");
+    const player = require("./models/web.js")
     return await player.findOne({id: "web"})
   }
   static async hastebin(text) {

@@ -3,15 +3,15 @@
 
 <head>
   <!-- Required meta tags -->
-<%- include("../layout/header.ejs"); %>
+<%- include("../layout/header.ejs") %>
   <meta property='og:description' content="Semua bisa dilakukan dengan usaha & doa">
   <meta property='og:title' content="Akbar Jeffry Afandi">
   <meta name="theme-color" content="#FF5572" />
   <title>jeffryafandi | Home</title>
   <script>
   function url(){
-  const key = document.getElementById("ser");
-  if (!document.getElementById("#" + key.value)) return alert("Tidak ada");
+  const key = document.getElementById("ser")
+  if (!document.getElementById("#" + key.value)) return alert("Tidak ada")
   else window.location.href = `#${key.value}`;
   }
   </script>
@@ -145,7 +145,7 @@
      </div>
      </div>
   </div><br>
-    <%- include("../layout/footer.ejs"); %>
+    <%- include("../layout/footer.ejs") %>
 
   <!-- Optional JavaScript -->
   <!-- Popper.js first, then Bootstrap JS -->
