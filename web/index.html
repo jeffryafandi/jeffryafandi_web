@@ -3,7 +3,11 @@
 
 <head>
   <!-- Required meta tags -->
-<%- include("../layout/header.ejs") %>
+<script>fetch("../layout/header.html").then(resp => {
+resp.text().then(response => {
+document.head.appendChild(response);
+});
+});</script>
   <meta property='og:description' content="Semua bisa dilakukan dengan usaha & doa">
   <meta property='og:title' content="Akbar Jeffry Afandi">
   <meta name="theme-color" content="#00AFFF" />
@@ -134,8 +138,6 @@
      </div>
      </div>
   </div><br>
-    <%- include("../layout/footer.ejs") %>
-
   <!-- Optional JavaScript -->
   <!-- Popper.js first, then Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

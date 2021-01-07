@@ -2,7 +2,11 @@
 <html>
 
 <head>
-   <%- include("../layout/header.ejs") %>
+   <script>fetch("../../layout/header.html").then(resp => {
+   resp.text().then(response => {
+   document.head.appendChild(response);
+   });
+   });</script>
     <meta name="description" content="Page tidak ditemukan...">
   <meta name="title" content="404 Ga ketemu">
   <meta name="theme-color" content="#000" />
