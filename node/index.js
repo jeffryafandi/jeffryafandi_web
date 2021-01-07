@@ -9,7 +9,7 @@ const database = require("../database.js");
 database.init();
 //require("./telegram.js");
 const util = require("../util.js");
-util.db().then(async (db) => {
+
   app.set("views", path.join(__dirname, "../web"));
   app.set("view engine", "ejs");
   app.use(express.static("public"));
@@ -26,7 +26,7 @@ util.db().then(async (db) => {
     })
   } else
     app.get("/", function(req, res) {
-      res.render("index.ejs", { berita: db.berita })
+      res.render("index.ejs")
     })
   app.get("/lisensi", function(req, res) {
     //Tugas Maping
@@ -67,4 +67,3 @@ util.db().then(async (db) => {
     res.render("404");
   });
   app.listen(process.env.PORT)
-})
