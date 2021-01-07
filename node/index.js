@@ -12,9 +12,9 @@ const util = require("../util.js");
 
   app.set("views", path.join(__dirname, "../web"));
   app.set("view engine", "ejs");
-  app.use(express.static("public"));
-  app.use('../public', express.static('public'));
-  app.use(express.static(__dirname + '../public'));
+ /* app.use(express.static("../public"));
+ app.use('../public', express.static('public'));
+  app.use(express.static(__dirname + '../public'));*/
   // Website Maping__________________________
   app.get("/p200ok", function(req, res) {
     res.sendStatus(200);
