@@ -1,15 +1,25 @@
+<html>
   <head>
     <%- include("../../layout/header.ejs") %>
     <title>Telegra.ph</title>
+        	  <script>
+        	    function myFunction() {
+        	  var element = document.body;
+        	  element.classList.toggle("dark");
+        	}</script>
     </head>
     <body>
   <div class="header">
   		<h1>Title</h1>
   		<span class="author">Author &bull; April 22, 2018</span>
   	</div>
+  	<div class="form-check form-switch">
+  	 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+  	  <label class="form-check-label" onclick="myFunction()" for="flexSwitchCheckDefault"></label></div>
   	<div class="body">
           <p>Paragraph. <b>bold</b> <i>italic</i> <u>underline</u> <a href="#">link</a></p>
   		<pre>Code</pre>
   		<li>li</li>
   	</div>
 </body>
+</html>
