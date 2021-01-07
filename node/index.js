@@ -20,7 +20,7 @@ const util = require("../util.js");
     res.sendStatus(200);
     console.log("Nah kan Kena Ping...")
   });
-  if (db.maintenance === true) {
+  if (mt === true) {
     app.get("*", function(req, res) {
       res.render("maintenance.ejs")
     })
