@@ -33,7 +33,7 @@ const util = require("../util.js");
     res.render("lisensi.ejs")
   })
   app.get("/tugas/:id", async (req, res) => {
-    res.render(`tugas/${req.params.id}`) || res.render("404")
+    res.sendFile(`tugas/${req.params.id}`) || res.render("404")
   })
   /*
   app.get("/tugas/7", function(req, res) {
