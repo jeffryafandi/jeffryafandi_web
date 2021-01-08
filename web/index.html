@@ -1,13 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html>
 
 <head>
   <!-- Required meta tags -->
-<script>fetch("/header.html").then(resp => {
-resp.text().then(response => {
-document.head.appendChild(response);
-});
-});</script>
+
   <meta property='og:description' content="Semua bisa dilakukan dengan usaha & doa">
   <meta property='og:title' content="Akbar Jeffry Afandi">
   <meta name="theme-color" content="#00AFFF" />
@@ -19,6 +15,12 @@ document.head.appendChild(response);
   else window.location.href = `#${key.value}`;
   }
   </script>
+  <script>
+fetch("/header.html").then(resp => {
+resp.text().then(response => {
+document.head.appendChild(response);
+});
+});</script>
 </head>
 
 <body style="padding-top: 50px;background: #00AFFF">
