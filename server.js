@@ -1,16 +1,5 @@
-const express = require("express");
-const app = express();
-
-app.use(express.static("public"));
-
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/web/index.html");
-});
-
-app.use(function(req, res) {
-  res.sendFile(__dirname + "/web/404.html");
-});
-
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
-});
+const ServerListener = require("./serverListen"),
+      server = new ServerListener(process.env.PORT || 3000, resolve(__dirname, "src"));
+      
+      
+server.run();

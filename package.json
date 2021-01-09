@@ -14,9 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.10.9",
-    "node-telegram-bot-api": "^0.50.0",
-    "node-superfetch":"^0.1.10"
+    "fs": "*"
   },
   "engines": {
     "node": "14.x"
