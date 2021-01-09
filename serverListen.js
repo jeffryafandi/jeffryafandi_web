@@ -16,7 +16,7 @@ class ServerListener {
 });
 
 app.get("/post/:id", async (req, res) => {
-  res.sendFile(__dirname + `/post/${req.params.id}.html`) || res.sendFile(__dirname + "/main/404.html");
+  res.sendFile(__dirname + `/post/${req.params.id}`) || res.sendFile(__dirname + "/main/404.html");
 })
 
 app.use(function(req, res) {
