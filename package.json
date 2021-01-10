@@ -1,8 +1,8 @@
 {
-  "name": "jeffryafandi.tk",
-  "version": "1.0.0",
-  "description": "jeffryafandi Project",
-  "main": "index.js",
+  "name": "jeffryafandi web",
+  "version": "2.0.1",
+  "description": "jeffryafandi Website Project",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
@@ -10,12 +10,13 @@
     "node",
     "icecream"
   ],
-  "author": "Akbar Jeffry Afandi",
+  "author": "jeffryafandi",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "fs": "*",
-    "path":"*"
+    "express": "*",
+    "ejs":"*",
+    "path":"*",
+    "http":"*"
   },
   "engines": {
     "node": "14.x"
