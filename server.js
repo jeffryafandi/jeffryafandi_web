@@ -24,7 +24,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/post/2021/:id", async (req, res) => {
-  res.render(`/post/2021/${req.params.id}`) || res.render("404");
+  res.render(`post/2021/${req.params.id}`) || res.render("404");
 })
 
 app.use(function(req, res) {
