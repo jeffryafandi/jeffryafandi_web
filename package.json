@@ -1,7 +1,7 @@
 {
-  "name": "jeffryafandi web",
+  "name": "jeffryafandi",
   "version": "2.0.1",
-  "description": "jeffryafandi Website Project",
+  "description": "jeffryafandi-project",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -19,6 +19,6 @@
     "http": "*"
   },
   "engines": {
-    "node": "14.x"
+    "node": "12.x"
   }
 }
