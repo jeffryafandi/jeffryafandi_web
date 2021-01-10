@@ -7,9 +7,14 @@
   <meta property='og:description' content="Semua bisa dilakukan dengan usaha & doa">
   <meta property='og:title' content="Akbar Jeffry Afandi">
   <meta name="theme-color" content="#00AFFF" />
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-  <script src="/js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
+  <script src="/public/js/bootstrap.js"></script>
   <title>jeffryafandi | Home</title>
+    <script> fetch("/html/head.html").then(resp => {
+   resp.text().then(response => {
+   document.head.appendChild(response);
+   });
+   });</script>
 </head>
 
 <body style="padding-top: 50px;background: #00AFFF">
