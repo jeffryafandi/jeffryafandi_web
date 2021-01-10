@@ -1,9 +1,9 @@
 const http = require("http"),
-      ejs = require('ejs'),
+      ejs = require("ejs"),
       express = require("express"),
       app = express(),
       path = require("path"),
-      config = require("config.json");
+      config = require("./config.json");
 
 app.set("views", path.join(__dirname, "/views"));
 app.engine('html', require('ejs').renderFile);
