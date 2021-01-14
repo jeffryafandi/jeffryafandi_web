@@ -20,7 +20,7 @@ if(config.maintenance === true){
 }else {
   
 app.get("/", function(req, res) {
-  res.render("index");
+  res.render("maintenance");
 });
 
 app.get("/post/2021/:id", async (req, res) => {
