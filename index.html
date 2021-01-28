@@ -3,147 +3,73 @@
 
 <head>
   <!-- Required meta tags -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta property='og:description' content="Semua bisa dilakukan dengan usaha & doa">
   <meta property='og:title' content="Akbar Jeffry Afandi">
   <meta name="theme-color" content="#00AFFF" />
   <title>jeffryafandi | Home</title>
-  <script>
-  function url(){
-  const key = document.getElementById("ser")
-  if (!document.getElementById("#" + key.value)) return alert("Tidak ada")
-  else window.location.href = `#${key.value}`;
-  }
-  </script>
-  <script>
-fetch("/header.html").then(resp => {
-resp.text().then(response => {
-document.head.appendChild(response);
-});
-});</script>
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="/public/css/style.min.css">
+  <link rel="stylesheet" href="/public/css/font.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
 </head>
 
-<body style="padding-top: 50px;background: #00AFFF">
-
-  <nav id="nav" style="background: #00AFFF" class="navbar navbar-expand-md navbar-dark fixed-top shadow-lg rounded">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Jeffryafandi | Home</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-        </svg>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="https://wa.me/6289515949920">Whatsapp</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-              Lainya
-            </a>
-            <ul style="background: #00AFFF;padding-left: 16px;" class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <li><a href="#" class="nav-link" style="text-decoration: none;">Coming Soon, hehe</a></li>
-            </ul>
-          </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-              </ul>
-            
-      </div>
-    </div>
-  </nav>
-  <div>
-     <div class="shadow-lg p-3 mb-5 bg-white rounded" style="background-color: #e3f2fd;">
-       <marquee class="rounded shadow-sm" style="background: #00AFFF;color: #fff">Hai</marquee>
-       <h1>
-         <center>Selamat Datang</center>
-       </h1>
-       <p>Last update: 29 Nov 2020 16.45 UTC | Selamat datang di web jeffryafandi, web ini tercipta karna rasa penasaran & kurang kerjaan. Ditulis dengan bahasa js,ejs. didukung oleh: Bootstrap, NodeJS, MongoDB, Express</p>
-     </div>
-     <div id="5" style="margin: 10px"></div>
-     <div style="margin: 18px">
-     <!--^^^^Ganti ke id terakhir^^^^^-->
-<div id="4" class="card text-center">
-             <div class="card-header">
-               Fiqih<sup><span class="badge bg-secondary">TUGAS</span><span class="badge bg-info">#5</span></sup>
-             </div>
-             <div class="card-body">
-               <h5 class="card-title">Modul Hal 29 - 32</h5>
-               <p class="card-text">Modul halaman 29 - 32 (1-15)| Mengerjakan bab jual beli</p>
-               <a href="tugas/5" class="btn btn-primary">Lihat Tugas</a>
-             </div>
-             <div class="card-footer text-muted">
-               15 Okt 2020 | 11.22
-             </div>
-           </div>
-<!--********************************************************-->
-<br>
-<div id="3" class="card text-center">
-             <div class="card-header">
-               Quran Hadist<sup><span class="badge bg-secondary">TUGAS</span><span class="badge bg-info">#4</span></sup>
-             </div>
-             <div class="card-body">
-               <h5 class="card-title">LKS Hal 71</h5>
-               <p class="card-text">LKS halaman 71| Mengerjakan Nomer 1 sampai nomer 4</p>
-               <a href="tugas/4" class="btn btn-primary">Lihat Tugas</a>
-             </div>
-             <div class="card-footer text-muted">
-               14 Okt 2020 | 19.25
-             </div>
-           </div>
-<!--********************************************************-->
-<br>
-     <div id="2" class="card text-center">
-             <div class="card-header">
-               Prakarya<sup><span class="badge bg-secondary">TUGAS</span><span class="badge bg-info">#3</span></sup>
-             </div>
-             <div class="card-body">
-               <h5 class="card-title">UKBM Hal 16 - 29</h5>
-               <p class="card-text">UKBM halaman 16 - 29 | Mengerjakan bab olahan bahan pangan</p>
-               <a href="tugas/3" class="btn btn-primary">Lihat Tugas</a>
-             </div>
-             <div class="card-footer text-muted">
-               13 Okt 2020 | 19.17
-             </div>
-           </div>
-<!--********************************************************-->
-     <br>
-      <div id="1" class="card text-center">
-        <div class="card-header">
-          Bahasa Indonesia<sup><span class="badge bg-secondary">TUGAS</span><span class="badge bg-info">#2</span></sup>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Lks Hal 98</h5>
-          <p class="card-text">Lks halaman 98 | Menjawab 10 soal</p>
-          <a href="tugas/2" class="btn btn-primary">Lihat Tugas</a>
-        </div>
-        <div class="card-footer text-muted">
-          13 Okt 2020 | 18.20
-        </div>
-      </div>
-<!--********************************************************-->
-    <br>
-     <div id="0" class="card text-center">
-       <div class="card-header">
-         Bahasa Indonesia<sup><span class="badge bg-secondary">TUGAS</span><span class="badge bg-info">#1</span></sup>
-       </div>
-       <div class="card-body">
-         <h5 class="card-title">Lks Hal 88 & 89</h5>
-         <p class="card-text">Lks halaman 88 - 89 | Novel dan mendeskripsikan sebuah novel</p>
-         <a href="tugas/1" class="btn btn-primary">Lihat Tugas</a>
-       </div>
-       <div class="card-footer text-muted">
-         13 Okt 2020 | 17.44
-       </div>
-     </div>
-     </div>
-  </div><br>
-  <!-- Optional JavaScript -->
-  <!-- Popper.js first, then Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+<body class="dark">
+  <!-- Page Preloder -->
+  <div id="preloder">
+    <div class="loader"></div>
+  </div>
+  <div class="header">
+    <h1>Title</h1>
+    <span class="author">Akbar Jeffry Afandi, 27 Januari 202</span>
+  </div>
+  <div class="body">
+    <p>Paragraph. <b>bold</b> <i>italic</i> <u>underline</u> <a href="#">link</a></p>
+    <pre>Code</pre>
+    <li>li</li>
+    <table class="table table-bordered border-dark table-primary table-striped">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Table</th>
+          <th scope="col">Table</th>
+          <th scope="col">Table</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td></td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Js Plugins -->
+  <script src="/public/js/jquery-3.3.1.min.js"></script>
+  <script src="/public/js/bootstrap.js"></script>
+  <script src="/public/js/jquery.slicknav.js"></script>
+  <script src="/public/js/owl.carousel.min.js"></script>
+  <script src="/public/js/main.js"></script>
+  <script src="/public/js/jquery-3.3.1.min.js"></script>
+  <script src="/public/js/bootstrap.js"></script>
+  <script src="/public/js/jquery.slicknav.js"></script>
+  <script src="/public/js/owl.carousel.min.js"></script>
+  <script src="/public/js/main.js"></script>
 </body>
 
 </html>
