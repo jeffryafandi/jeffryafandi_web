@@ -20,16 +20,14 @@ if(config.maintenance === true){
 }else {
   
 app.get("/", function(req, res) {
-  res.render("maintenance");
+  res.render("index");
 });
 
 //post 2021
 app.get("/post/2021/:id", async (req, res) => {
   res.render(`post/2021/${req.params.id}`) || res.render("404");
 })
-app.get("/post/2021", async (req,res) => {
-  res.render("post/2021/index")
-})
+
 //Handle Blank section
 app.use(function(req, res) {
   res.render("404")
