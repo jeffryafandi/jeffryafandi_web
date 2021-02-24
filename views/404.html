@@ -21,10 +21,11 @@
 <body class="dark">
   <div class="header">
     <h1>404 Error - Page Not Found</h1>
-    <span class="author">System &bull; February 19, 2021</span>
+    <span id="author" class="author"></span>
   </div>
   <div class="body"><p>
     <li><a href="/">Back to Home Page</a></li>
+    <br><b>Jika page "post" hilang</b>, coba "/post/2021/{Bulan}/{id post}"<br>Contoh: <a style="text-decoration: none" href="https://jeffryafandi.tk/post/2021/2/tugas-bahasa-inggris">https://jeffryafandi.tk/post/2021/2/tugas-bahasa-inggris</a></b>
     <hr>
     Contact:
     <li><a href="https://wa.me/6289515949920">Whatsapp</a></li>
@@ -35,5 +36,7 @@
     </p>
   </div>
 </body>
-
+<script>var d = new Date();
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+document.getElementById("author").innerHTML = "System &bull; " + months[d.getMonth()] + " "+ d.getDate() + ", " + d.getFullYear()</script>
 </html>

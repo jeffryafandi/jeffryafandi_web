@@ -1,24 +1,43 @@
-<!doctype html>
-<head>
-  <!-- Required meta tags -->
-  <meta property='og:description' content="Page Sedang Maintenance, mohon bersabar">
-  <meta property='og:title' content="Maintenance">
-  <title>Maintenance</title>
-  <title>Site Maintenance</title>
-    <!--css and script-->
-    <link rel="stylesheet" type="text/css" href="/public/css/style.min.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/font.min.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
-    <script src="/public/js/bootstrap.js"></script>
-</head>
-<body class="dark" style="margin: 75px">
- <a href="/" style="text-decoration: none">Maintenance: <a>
-   <!-- Display the countdown timer in an element -->
-<h1 id="demo"></h1>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="MobileOptimized" content="176" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="jeffryafandi, tugasjeffryafandi, jeffryafanditugas, jeffryafandiweb">
+  <meta property="og:site_name" content="Jeffryafandi">
+  <meta property='og:title' content="Template">
+  <meta property='og:description' content="Dark Theme">
+  <!--title-->
+  <title>Template</title>
+  <!--css and script-->
+  <link rel="stylesheet" type="text/css" href="/public/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/font.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
+  <script src="/public/js/bootstrap.js"></script>
+</head>
+
+<body class="dark">
+  <div class="header">
+    <h1>Title</h1>
+    <span id="author" class="author"></span>
+  </div>
+  <div class="body">
+    <p>Maintenance: <br><a id="demo" href="/"></a></p>
+  </div>
+</body>
+
+<script>var d = new Date();
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+document.getElementById("author").innerHTML = "System &bull; " + months[d.getMonth()] + " "+ d.getDate() + ", " + d.getFullYear()</script>
 <script>
 // Set a valid end date
-var countDownDate = new Date("Jan 30, 2021 00:00:00").getTime();
+var countDownDate = new Date(require("../config.json").maintenance.end).getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -46,4 +65,4 @@ var x = setInterval(function() {
   }
 }, 1000);
 </script>
-</body>
+</html>

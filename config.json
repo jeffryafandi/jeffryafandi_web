@@ -1,3 +1,6 @@
 {
-  "maintenance": false
+  "maintenance": {
+    "status": false,
+    "end": "Feb 30, 2021 00:00:00"
+  }
 }

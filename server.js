@@ -13,7 +13,7 @@ app.use('/public', express.static('public'));
 app.use(express.static(__dirname + '/public'));
 
 //Routing
-if(config.maintenance === true){
+if(config.maintenance.status === true){
   app.use(function(req, res) {
     res.render("maintenance")
   });
@@ -35,6 +35,11 @@ app.get("/post/:year/:month/:id", async (req, res) => {
 })
 
 //Handle Blank section
+
+app.get("/maintenance", async (req,res) =>{
+  res.render("maintenance")
+})
+
 app.use(function(req, res) {
   res.render("404")
 });
