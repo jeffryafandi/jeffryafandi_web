@@ -24,11 +24,11 @@ app.get("/", function(req, res) {
 });
 
 //post Route
-app.get("/post/:year/:id", async (req, res) => {
-  res.render(`post/${req.params.year}/2/${req.params.id}`) || res.render("404");
+app.get("/post/2021/:id", async (req, res) => {
+  res.render(`post/2021/2/${req.params.id}`) || res.render("404");
 })
 
-app.get("/post/:year/:id", async (req, res) => {
+app.get("/post/2021/:id", async (req, res) => {
   res.render(`post/${req.params.year}/1/${req.params.id}`) || res.render("404");
 })
 
