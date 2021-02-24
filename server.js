@@ -26,17 +26,10 @@ app.get("/", function(req, res) {
 //post Route
 app.get("/post/2021/:id", async (req, res) => {
   res.render(`post/2021/1/${req.params.id}`) ||
+    res.render("404");
+})
+app.get("/post/2021/:id", async (req, res) => {
   res.render(`post/2021/2/${req.params.id}`) ||
-  res.render(`post/2021/3/${req.params.id}`) ||
-  res.render(`post/2021/4/${req.params.id}`) ||
-  res.render(`post/2021/5/${req.params.id}`) ||
-  res.render(`post/2021/6/${req.params.id}`) ||
-  res.render(`post/2021/7/${req.params.id}`) ||
-  res.render(`post/2021/8/${req.params.id}`) ||
-  res.render(`post/2021/9/${req.params.id}`) ||
-  res.render(`post/2021/10/${req.params.id}`) ||
-  res.render(`post/2021/11/${req.params.id}`) ||
-  res.render(`post/2021/12/${req.params.id}`) ||
   res.render("404");
 })
 
