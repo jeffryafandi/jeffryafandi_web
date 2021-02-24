@@ -28,7 +28,7 @@
     <span id="author" class="author"></span>
   </div>
   <div class="body">
-    <p>Maintenance: <br><a id="demo" href="/"></a></p>
+    <p>Page dalam perbaikan. Selesai dalam: <b><a style="text-decoration: none" id="demo" href="/"></a></b></p>
   </div>
 </body>
 
@@ -37,7 +37,7 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
 document.getElementById("author").innerHTML = "System &bull; " + months[d.getMonth()] + " "+ d.getDate() + ", " + d.getFullYear()</script>
 <script>
 // Set a valid end date
-var countDownDate = new Date(require("../config.json").maintenance.end).getTime();
+var countDownDate = new Date("Feb 30, 2021 00:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -55,8 +55,8 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "hari " + hours + "jam "
-  + minutes + "menit " + seconds + "detik ";
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
 
   // If the countdown is finished, write some text
   if (distance < 0) {
