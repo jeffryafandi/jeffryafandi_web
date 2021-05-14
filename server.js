@@ -39,7 +39,9 @@ app.get("/post/:year/:month/:id", async (req, res) => {
 app.get("/maintenance", async (req,res) =>{
   res.render("maintenance")
 })
-
+app.get("/test", async (req,res) =>{
+  res.render("test")
+})
 app.use(function(req, res) {
   res.render("404")
 });
