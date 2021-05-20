@@ -21,16 +21,69 @@
   <link rel="stylesheet" type="text/css" href="/public/css/font.min.css">
   <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
   <script src="/public/js/bootstrap.js"></script>
+  <style>
+    .hide {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
 </head>
 
 <body class="dark">
   <div class="header">
-    <h1>Hai :)</h1>
-    <span class="author">Author &bull; Mei 15, 2021</span>
+    <h1>Kamu suka sama aku ngga ?</h1>
+    <span class="author">Author &bull; Mei 20, 2021</span>
   </div>
   <div class="body">
+    <h4>Jawab: </h4>
+    <button onclick="yes()">Iya :)</button>
+    <div class="hide" id="mm">Yah, tombolnya sisa ini doang :3</div>
+    <div id="b"><button id="f" onclick="f1()">Nggaklah :)</button></div>
+    <br><br>
+    <div id="a" class="hide"><button onclick="f2()" id="d">Nggaklah :)</button></div><br><br>
+    <div id="e"><button onclick="f3()" class="hide" id="c">Nggaklah :)</button></div><br><br>
+    <div id="h" class="hide"><button onclick="f4()" id="g">Nggaklah :)</button></div>
   </div>
-  <script>alert("Halo :v");alert("Agh :v");alert("hmm");alert("Gua pengen bilang:");alert("Sepurane sing akeh :)");alert("Hey..");alert("Lu maafin gua kan ?");alert("🗿");</script>
+  <script>
+    function yes() {
+      document.getElementById('b').classList.add('hide');
+      document.getElementById('d').classList.add('hide');
+      document.getElementById('c').classList.add('hide');
+      document.getElementById('g').classList.add('hide');
+      setTimeout(() => { alert("Yey 🤤"); }, 500);
+    }
+
+    function f() {
+      document.getElementById('mm').classList.add('show');
+    }
+
+    function f1() {
+      document.getElementById('a').classList.add('show');
+      document.getElementById('b').classList.add('hide');
+    }
+
+    function f2() {
+      document.getElementById('c').classList.add('show');
+      document.getElementById('d').classList.add('hide');
+      document.getElementById('b').classList.add('hide');
+    }
+
+    function f3() {
+      document.getElementById('c').classList.add('hide');
+      document.getElementById('e').classList.add('hide');
+      document.getElementById('h').classList.add('show');
+    }
+
+    function f4() {
+      document.getElementById('c').classList.add('hide');
+      document.getElementById('e').classList.add('hide');
+      document.getElementById('mm').classList.add('show');
+      document.getElementById('g').classList.add('hide');
+    }
+  </script>
 </body>
 
 </html>
