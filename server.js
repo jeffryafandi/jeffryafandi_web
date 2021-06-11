@@ -45,6 +45,9 @@ app.get("/maintenance", async (req,res) =>{
 app.get("/test", async (req,res) =>{
   res.render("test")
 })
+
+app.use(app.router);
+
 app.use(function(req, res, next) {
   res.status(404);
 
