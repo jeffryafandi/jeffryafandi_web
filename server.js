@@ -51,9 +51,6 @@ app.get("/maintenance", async (req,res) =>{
 app.get("/test", async (req,res) =>{
   res.render("test")
 })
-app.use(function(req, res) {
-  res.render("404")
-});
 
 }
 app.listen(process.env.PORT);
