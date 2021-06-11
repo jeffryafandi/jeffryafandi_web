@@ -28,11 +28,15 @@ app.get("/", function(req, res) {
 app.get("/post/2021/:id", async (req, res) => {
   res.render(`post/2021/2/${req.params.id}`) ||
     res.render("404");
-})
+});
+app.get("/novel/because-i-like-you/:id", async (req, res) => {
+  res.render(`post/because-i-like-you/${req.params.id}`) ||
+    res.render("404");
+});
 
 app.get("/post/:year/:month/:id", async (req, res) => {
   res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("404");
-})
+});
 
 //Handle Blank section
 
