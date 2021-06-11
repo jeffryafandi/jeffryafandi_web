@@ -30,7 +30,7 @@ app.get("/post/2021/:id", async (req, res) => {
     res.render("404");
 });
 app.get("/novel/because-i-like-you/:im", async (req, res) => {
-await res.render(`post/novel/because-i-like-you/${req.params.im}`) || res.render('404')
+await res.render(`post/novel/because-i-like-you/${req.params.im}`); res.render('404');
 });
 
 app.get("/post/:year/:month/:id", async (req, res) => {
