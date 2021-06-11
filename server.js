@@ -30,7 +30,7 @@ app.get("/post/2021/:id", async (req, res) => {
     res.render("404");
 });
 app.get("/novel/because-i-like-you/:im", async (req, res) => {
-await res.render(`post/novel/because-i-like-you/${req.params.im}`);
+await res.render(`post/novel/because-i-like-you/${req.params.im}`) || res.render('404')
 });
 
 app.get("/post/:year/:month/:id", async (req, res) => {
@@ -45,8 +45,6 @@ app.get("/maintenance", async (req,res) =>{
 app.get("/test", async (req,res) =>{
   res.render("test")
 })
-
-app.use(app.router);
 
 app.use(function(req, res, next) {
   res.status(404);
