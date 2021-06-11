@@ -18,11 +18,14 @@ app.use('/public', express.static('public'));
 app.use(express.static(__dirname + '/public'));
 
 //Routing
-if(config.maintenance.status === true){
-  app.use(function(req, res) {
-    res.render("maintenance")
-  });
-}else {
+app.use(function(req, res, next) {
+  res.status(404);
+
+  // respond with html page
+  if (req.accepts('html')) {
+    res.render('404', { url: req.url });
+    return;
+  }});
   
 app.get("/", function(req, res) {
   res.render("index");
@@ -51,5 +54,5 @@ app.get("/test", async (req,res) =>{
   res.render("test")
 })
 
-}
+
 app.listen(process.env.PORT);
