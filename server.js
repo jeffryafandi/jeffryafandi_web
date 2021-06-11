@@ -1,12 +1,17 @@
 const http = require("http"),
-      ejs = require("ejs"),
       express = require("express"),
       app = express(),
       path = require("path"),
       config = require("./config.json");
 
-app.set("views", path.join(__dirname, "/views"));
+/*app.set("views", path.join(__dirname, "/views"));
 app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');*/
+var cons = require('consolidate');
+
+// view engine setup
+app.engine('html', cons.swig)
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.use(express.static("public"));
 app.use('/public', express.static('public'));

@@ -14,9 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "*",
-    "ejs": "*",
     "path": "*",
-    "http": "*"
+    "http": "*",
+    "consolidate": "*",
+    "swig": "*"
   },
   "engines": {
     "node": "12.x"
