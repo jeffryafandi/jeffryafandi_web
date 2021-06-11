@@ -18,14 +18,6 @@ app.use('/public', express.static('public'));
 app.use(express.static(__dirname + '/public'));
 
 //Routing
-app.use(function(req, res, next) {
-  res.status(404);
-
-  // respond with html page
-  if (req.accepts('html')) {
-    res.render('404', { url: req.url });
-    return;
-  }});
   
 app.get("/", function(req, res) {
   res.render("index");
@@ -53,6 +45,13 @@ app.get("/maintenance", async (req,res) =>{
 app.get("/test", async (req,res) =>{
   res.render("test")
 })
+app.use(function(req, res, next) {
+  res.status(404);
 
+  // respond with html page
+  if (req.accepts('html')) {
+    res.render('404', { url: req.url });
+    return;
+  }});
 
 app.listen(process.env.PORT);
