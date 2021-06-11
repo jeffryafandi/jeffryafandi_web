@@ -29,7 +29,7 @@ app.get("/post/2021/:id", async (req, res) => {
   res.render(`post/2021/2/${req.params.id}`) ||
     res.render("404");
 });
-return app.get("/novel/because-i-like-you/:im", async (req, res) => {
+app.get("/novel/because-i-like-you/:im", async (req, res) => {
   res.render(`post/novel/because-i-like-you/${req.params.im}`) || res.render("404");
 });
 
