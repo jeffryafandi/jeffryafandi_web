@@ -5,7 +5,7 @@ const http = require("http"),
   config = require("./config.json"),
   fs = require('fs');
 //Length file
-let because_i_like_you = fs.readdirSync('/views/post/novel/because-i-like-you').length;
+let because_i_like_you = fs.readdirSync('./views/post/novel/because-i-like-you').length;
 
 //variable
 var cons = require('consolidate');
