@@ -1,8 +1,8 @@
 const http = require("http"),
-      express = require("express"),
-      app = express(),
-      path = require("path"),
-      config = require("./config.json");
+  express = require("express"),
+  app = express(),
+  path = require("path"),
+  config = require("./config.json");
 /*app.set("views", path.join(__dirname, "/views"));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');*/
@@ -17,7 +17,7 @@ app.use('/public', express.static('public'));
 app.use(express.static(__dirname + '/public'));
 
 //Routing
-  
+
 app.get("/", function(req, res) {
   res.render("index");
 });
@@ -29,7 +29,9 @@ app.get("/post/2021/:id", async (req, res) => {
     res.render("404");
 });
 app.get("/novel/because-i-like-you/:im/", async (req, res) => {
-await res.render(`post/novel/because-i-like-you/${req.params.im}`);
+  if (!isNaN(req.params.im) && (req.params.im + 0) <= 17) return res.render('404');
+  else
+    res.render(`post/novel/because-i-like-you/${req.params.im}`);
 });
 
 app.get("/post/:year/:month/:id", async (req, res) => {
@@ -38,10 +40,10 @@ app.get("/post/:year/:month/:id", async (req, res) => {
 
 //Handle Blank section
 
-app.get("/maintenance", async (req,res) =>{
+app.get("/maintenance", async (req, res) => {
   res.render("maintenance")
 })
-app.get("/test", async (req,res) =>{
+app.get("/test", async (req, res) => {
   res.render("test")
 })
 
@@ -52,6 +54,7 @@ app.use(function(req, res, next) {
   if (req.accepts('html')) {
     res.render('404', { url: req.url });
     return;
-  }});
+  }
+});
 
 app.listen(process.env.PORT);
