@@ -22,7 +22,7 @@ app.use(cookieSession({
   keys: ["key-1", "key-2"],
 
   // Cookie Options
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  maxAge:  60 * 1000 // 24 hours
 }))
 //Routing
   
