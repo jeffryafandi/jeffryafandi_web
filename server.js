@@ -3,7 +3,6 @@ const http = require("http"),
       app = express(),
       path = require("path"),
       config = require("./config.json");
-var cookieSession = require('cookie-session')
 /*app.set("views", path.join(__dirname, "/views"));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');*/
@@ -17,13 +16,6 @@ app.use(express.static("public"));
 app.use('/public', express.static('public'));
 app.use(express.static(__dirname + '/public'));
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ["key-1", "key-2"],
-
-  // Cookie Options
-  maxAge:  60 * 1000 // 24 hours
-}))
 //Routing
   
 app.get("/", function(req, res) {
