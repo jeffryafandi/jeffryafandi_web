@@ -29,10 +29,6 @@ app.get("/post/2021/:id", async (req, res) => {
     res.render("404");
 });
 app.get("/novel/because-i-like-you/:im/", async (req, res) => {
-  if (req.params.im > 18) {
-    res.render('404');
-  }
-  else
     res.render(`post/novel/because-i-like-you/${req.params.im}`);
 });
 
