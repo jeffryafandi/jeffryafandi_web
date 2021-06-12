@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(cookieSession({
   name: 'session',
-  keys: [ /* secret keys */ ],
+  keys: ["key-1", "key-2"],
 
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
