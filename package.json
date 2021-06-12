@@ -17,7 +17,8 @@
     "path": "*",
     "http": "*",
     "consolidate": "*",
-    "swig": "*"
+    "swig": "*",
+    "cookie-session": "*"
   },
   "engines": {
     "node": "12.x"
