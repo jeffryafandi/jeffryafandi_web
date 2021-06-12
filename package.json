@@ -17,7 +17,8 @@
     "path": "*",
     "http": "*",
     "consolidate": "*",
-    "swig": "*"
+    "swig": "*",
+    "fs": "*"
   },
   "engines": {
     "node": "12.x"

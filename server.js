@@ -2,10 +2,12 @@ const http = require("http"),
   express = require("express"),
   app = express(),
   path = require("path"),
-  config = require("./config.json");
-/*app.set("views", path.join(__dirname, "/views"));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');*/
+  config = require("./config.json"),
+  fs = require('fs');
+//Length file
+let because_i_like_you = fs.readdirSync('/views/post/novel/because-i-like-you').length;
+
+//variable
 var cons = require('consolidate');
 
 // view engine setup
@@ -29,6 +31,10 @@ app.get("/post/2021/:id", async (req, res) => {
     res.render("404");
 });
 app.get("/novel/because-i-like-you/:im/", async (req, res) => {
+   if (req.params.im > because_i_like_you) {
+    res.render('404');
+  }
+  else
     res.render(`post/novel/because-i-like-you/${req.params.im}`);
 });
 
@@ -54,14 +60,6 @@ app.use(function(req, res, next) {
     return;
   }
 });
-app.use(function(req, res, next) {
-  res.status(500);
 
-  // respond with html page
-  if (req.accepts('html')) {
-    res.render('404', { url: req.url });
-    return;
-  }
-});
 
 app.listen(process.env.PORT);
