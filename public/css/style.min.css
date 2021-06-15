@@ -12,6 +12,7 @@
   }
 }
 
+
 html {
   margin-top: 3%;
   margin-bottom: 4%;
@@ -21,6 +22,14 @@ html {
 
 body {
   width: 100%;
+}
+
+figure, .separator{
+margin:1.25rem 0;
+}
+
+.post-body .separator a{
+margin:0 !important;
 }
 
 .author {
@@ -42,6 +51,9 @@ pre {
   font-family: CustomSerif, serif
 }
 
+.copyright {
+  background-color: #1a252f;
+}
 body.dark {
   width: 100%;
   background-color: #000;
