@@ -30,6 +30,9 @@ app.get("/post/2021/:id", async (req, res) => {
   res.render(`post/2021/2/${req.params.id}`) ||
     res.render("404");
 });
+app.get("/library", async (req, res) => {
+  res.render(`library`);
+});
 app.get("/library/because-i-like-you-bab-:im", async (req, res) => {
    if (req.params.im > because_i_like_you) {
     res.render('404');
