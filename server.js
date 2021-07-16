@@ -25,14 +25,10 @@ app.get("/", function(req, res) {
 });
 
 //post Route
-
-app.get("/post/2021/:id", async (req, res) => {
-  res.render(`post/2021/2/${req.params.id}`) ||
-    res.render("404");
-});
 app.get("/library", async (req, res) => {
   res.render(`library`);
 });
+
 app.get("/library/because-i-like-you-bab-:im", async (req, res) => {
    if (req.params.im > because_i_like_you) {
     res.render('404');
@@ -40,13 +36,12 @@ app.get("/library/because-i-like-you-bab-:im", async (req, res) => {
   else
     res.render(`library/because-i-like-you/${req.params.im}`);
 });
-app.get("/library/because-i-like-you", async (req, res) => {
-    res.render(`library/because-i-like-you/001`);
-});
+
 app.get("/library/:im", async (req, res) => {
     res.render(`library/${req.params.im}/001`);
 });
-app.get("/post/:year/:month/:id", async (req, res) => {
+
+app.get("/p/:year/:month/:id", async (req, res) => {
   res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("404");
 });
 
@@ -54,9 +49,6 @@ app.get("/post/:year/:month/:id", async (req, res) => {
 
 app.get("/maintenance", async (req, res) => {
   res.render("maintenance")
-})
-app.get("/test", async (req, res) => {
-  res.render("test")
 })
 
 app.use(function(req, res, next) {
