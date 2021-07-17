@@ -37,10 +37,15 @@ app.get("/library/because-i-like-you-bab-:im", async (req, res) => {
     res.render(`library/because-i-like-you/${req.params.im}`);
 });
 
-app.get("/test", async (req, res) => {
+app.get("/ad1", async (req, res) => {
   res.render("test")
 })
-
+app.get("/ad2", async (req, res) => {
+  res.render("test1")
+})
+app.get("/ad3", async (req, res) => {
+  res.render("test2")
+})
 app.get("/library/:im", async (req, res) => {
     res.render(`library/${req.params.im}/001`);
 });
