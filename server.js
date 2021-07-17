@@ -38,7 +38,7 @@ app.get("/library/because-i-like-you-bab-:im", async (req, res) => {
 });
 
 app.get("/test", async (req, res) => {
-  res.render("test")
+  res.redirect("https://raznar.id/")
 })
 
 app.get("/library/:im", async (req, res) => {
