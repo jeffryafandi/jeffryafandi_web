@@ -16,9 +16,12 @@
     "express": "*",
     "path": "*",
     "http": "*",
-    "consolidate": "*",
     "swig": "*",
-    "fs": "*"
+    "fs": "*",
+    "body-parser": "*",
+    "ejs": "*",
+    "gray-matter": "*",
+    "markdown-it": "*"
   },
   "engines": {
     "node": "12.x"
