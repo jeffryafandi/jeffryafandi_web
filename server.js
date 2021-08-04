@@ -41,7 +41,7 @@ app.get("/library/because-i-like-you-bab-:im", (req, res) => {
     res.render("404")
   } else
     res.render("library/because-i-like-you/01", {
-      post: result,
+      post: file.content,
       title: file.data.title,
       description: file.data.description,
       author: file.data.author,
