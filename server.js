@@ -12,6 +12,7 @@ let because_i_like_you = fs.readdirSync('./views/library/because-i-like-you').le
 //variable
 var bodyParser = require("body-parser");
 
+
 // app setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
@@ -29,7 +30,7 @@ app.get("/", function(req, res) {
 app.get("/library/because-i-like-you-bab-:im", (req, res) => {
 
   // read the markdown file
-  const file = matter.read('library/because-i-like-you/' + req.params.im + '.md');
+  const file = matter.read(__dirname + '/views/library/because-i-like-you/' + req.params.im, + '.md');
 
   // use markdown-it to convert content to HTML
   var md = require("markdown-it")();
