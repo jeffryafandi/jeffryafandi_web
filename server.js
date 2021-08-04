@@ -12,11 +12,6 @@ let because_i_like_you = fs.readdirSync('./views/library/because-i-like-you').le
 //variable
 var bodyParser = require("body-parser");
 
-// path for the ejs folder
-const path = require("path");
-
-// gray-matter to read the .md files better
-
 // app setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
