@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta content='#1a73e8' name='theme-color'/>
+  <meta property="og:site_name" content="Jeffryafandi">
+  <meta property='og:title' content="<%= status %> Error">
+  <meta property='og:description' content="<%= status %> Error - <%= message %>?!!">
+  <!--title-->
+  <title><%= status %> Error - <%= message %></title>
+  <!--css and script-->
+  <link rel="stylesheet" type="text/css" href="/public/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/font.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
+  <script src="/public/js/bootstrap.js"></script>
+</head>
+
+<body class="dark">
+  <div class="header">
+    <h1><%= status %> Error - <%= message %></h1>
+    <span id="author" class="author"></span>
+  </div>
+  <div class="body">
+  </div>
+</body>
+<script>var d = new Date();
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+document.getElementById("author").innerHTML = "System &bull; " + months[d.getMonth()] + " "+ d.getDate() + ", " + d.getFullYear()</script>
+</html>

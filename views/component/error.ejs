@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,26 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta content='#1a73e8' name='theme-color'/>
   <meta property="og:site_name" content="Jeffryafandi">
-  <meta property='og:title' content="<%= status %> Error">
-  <meta property='og:description' content="<%= status %> Error - <%= message %>?!!">
+  <meta property='og:title' content="<%= status %> Error?!">
+  <meta property='og:description' content="<%= status %> Error - <%= message %>">
   <!--title-->
-  <title><%= status %> Error - <%= message %></title>
+  <title><%= status %> Error</title>
   <!--css and script-->
-  <link rel="stylesheet" type="text/css" href="/public/css/style.min.css">
-  <link rel="stylesheet" type="text/css" href="/public/css/font.min.css">
-  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
-  <script src="/public/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/error.css">
 </head>
-
-<body class="dark">
-  <div class="header">
-    <h1><%= status %> Error - <%= message %></h1>
-    <span id="author" class="author"></span>
+</header>
+<!--dust particel-->
+<div>
+  <div class="starsec"></div>
+  <div class="starthird"></div>
+  <div class="starfourth"></div>
+  <div class="starfifth"></div>
+</div>
+<!--Dust particle end--->
+<div class="lamp__wrap">
+  <div class="lamp">
+    <div class="cable"></div>
+    <div class="cover"></div>
+    <div class="in-cover">
+      <div class="bulb"></div>
+    </div>
+    <div class="light"></div>
   </div>
-  <div class="body">
+</div>
+<!-- END Lamp -->
+<section class="error">
+  <!-- Content -->
+  <div class="error__content">
+    <div class="error__message message">
+      <h1 class="message__title">Page Not Found</h1>
+      <p class="message__text">We're sorry, the page you were looking for isn't found here. The link you followed may either be broken or no longer exists. Please try again, or take a look at our.</p>
+    </div>
+    <div class="error__nav e-nav">
+      <a href="/" target="_blanck" class="e-nav__link"></a>
+    </div>
   </div>
-</body>
-<script>var d = new Date();
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-document.getElementById("author").innerHTML = "System &bull; " + months[d.getMonth()] + " "+ d.getDate() + ", " + d.getFullYear()</script>
-</html>
+  <!-- END Content -->
+</section>
+</a>
