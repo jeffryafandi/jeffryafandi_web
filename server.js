@@ -106,7 +106,7 @@ app.get("/library/:im", async (req, res) => {
 app.get("/p/:year/:month/:id", async (req, res) => {
   res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("component/404");
 });
-
+/*
 app.use((req, res, next) => {
   const error = new Error("Not found");
   error.status = 404;
@@ -119,6 +119,6 @@ app.use((error, req, res, next) => {
     status: error.status || 500,
     message: error.message || 'Internal Server Error',
   });
-});
+});*/
 
 app.listen(process.env.PORT);
