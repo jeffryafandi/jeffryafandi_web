@@ -60,6 +60,14 @@ app.get("/library", (req, res) => {
     return ress.filter(x => x.toLowerCase().startsWith(input))
   }
   res.render("library", {
+    upLet: function(words) {
+      var separateWord = words.toLowerCase().split(' ');
+      for (var i = 0; i < separateWord.length; i++) {
+        separateWord[i] = separateWord[i].charAt(0).toUpperCase() +
+          separateWord[i].substring(1);
+      }
+      return separateWord.join(' ');
+    },
     as: fil("a"),
     bs: fil("b"),
     cs: fil("c"),
