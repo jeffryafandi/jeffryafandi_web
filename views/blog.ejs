@@ -1,0 +1,11 @@
+<html>
+  <body>
+    <div id="blog">
+      <% for (post of posts) { %>
+        <a href="/blog/<%= post %>">
+            <%= post.toUpperCase() %>  
+        </a>
+      <% } %>
+    </div>
+  </body>
+</html>

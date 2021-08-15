@@ -24,11 +24,12 @@
 
 <body class="dark">
   <div class="header">
-    <h1>Page dalam mode maintenance</h1>
+    <h1>Hello :)</h1>
     <span id="author" class="author"></span>
   </div>
   <div class="body">
-    <p>Page dalam perbaikan. Selesai dalam: <b><a style="text-decoration: none" id="demo" href="/"></a></b></p>
+    <p>This page is being maintained.</p>
+    <h5><a style="text-decoration: none" id="demo" href="/"></a></h5>
   </div>
 </body>
 
@@ -37,7 +38,7 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
 document.getElementById("author").innerHTML = "System &bull; " + months[d.getMonth()] + " "+ d.getDate() + ", " + d.getFullYear()</script>
 <script>
 // Set a valid end date
-var countDownDate = new Date("Feb 30, 2021 00:00:00").getTime();
+var countDownDate = new Date(<%= exp %>).getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -55,7 +56,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  document.getElementById("demo").innerHTML = "Finished in "+days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
   // If the countdown is finished, write some text

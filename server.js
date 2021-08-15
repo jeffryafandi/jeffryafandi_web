@@ -5,13 +5,12 @@ const http = require("http"),
   config = require("./config.json"),
   fs = require('fs'),
   matter = require('gray-matter');
-
-//Length file
-let because_i_like_you = fs.readdirSync('./views/library/because-i-like-you').length - 1;
-
-//variable
 var bodyParser = require("body-parser");
 
+//filter filecount
+function fc(filee) {
+  return fs.readdirSync(__dirname + `/views/library/${filee}`).length - 2;
+}
 
 // app setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,40 +20,74 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 app.use('/public', express.static('public'));
 app.use(express.static(__dirname + '/public'));
-
-//Routing
-
 app.get("/", function(req, res) {
   res.render("index");
 });
-app.get("/library/because-i-like-you-bab-:im", (req, res) => {
+/*
+//Maintenance Management
+app.use(function(req, res, next) {
+  res.status(404);
 
-  // read the markdown file
-  const file = matter.read(__dirname + '/views/library/because-i-like-you/' + req.params.im + '.md');
+  if (req.accepts('html')) {
+    res.render('maintenance', { exp: "Sep 30, 2021 00:00:00" });
+    return;
+  }
+});*/
 
-  // use markdown-it to convert content to HTML
-  var md = require("markdown-it")();
-  let content = file.content;
-  var result = md.render(content);
+//Routing
+app.get("/library/:am/:im", (req, res) => {
 
-  if (req.params.im > because_i_like_you) {
-    res.render("404")
+  function file() {
+    return matter.read(__dirname + '/views/library/${am}/' + req.params.im + '.md');
+  };
+
+  if (req.params.im > fc(req.params.am) && req.params.im < 0) {
+    res.render('404')
   } else
-    res.render("library/because-i-like-you/01", {
-      post: file.content,
-      title: file.data.title,
-      description: file.data.description,
-      author: file.data.author,
-      date: file.data.date,
+    res.render("library/:am/01", {
+      post: file().content,
+      title: file().data.title,
+      description: file().data.description,
+      author: file().data.author,
+      date: file().data.date,
       page: req.params.im
     });
 });
+app.get("/library", (req, res) => {
+  const ress = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
-//post Route
-app.get("/library", async (req, res) => {
-  res.render(`library`);
+  function fil(input) {
+    return ress.filter(x => x.toLowerCase().startsWith(input))
+  }
+  res.render("library", {
+    a: fil("a"),
+    b: fil("b"),
+    c: fil("c"),
+    d: fil("d"),
+    e: fil("e"),
+    f: fil("f"),
+    g: fil("g"),
+    h: fil("h"),
+    i: fil("i"),
+    j: fil("j"),
+    k: fil("k"),
+    l: fil("l"),
+    m: fil("m"),
+    n: fil("n"),
+    o: fil("o"),
+    p: fil("p"),
+    q: fil("q"),
+    r: fil("r"),
+    s: fil("s"),
+    t: fil("t"),
+    u: fil("u"),
+    v: fil("v"),
+    w: fil("w"),
+    x: fil("x"),
+    y: fil("y"),
+    z: fil("a")
+  });
 });
-
 
 //AD for Raznar
 app.get("/ad1", async (req, res) => {
@@ -73,12 +106,6 @@ app.get("/library/:im", async (req, res) => {
 app.get("/p/:year/:month/:id", async (req, res) => {
   res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("404");
 });
-
-//Handle Blank section
-
-app.get("/maintenance", async (req, res) => {
-  res.render("maintenance")
-})
 
 app.use(function(req, res, next) {
   res.status(404);
