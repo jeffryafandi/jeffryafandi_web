@@ -1,11 +1,56 @@
-<html>
-  <body>
-    <div id="blog">
-      <% for (post of posts) { %>
-        <a href="/blog/<%= post %>">
-            <%= post.toUpperCase() %>  
-        </a>
-      <% } %>
-    </div>
-  </body>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="MobileOptimized" content="176" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/x-icon" href="/public/assets/favicon.ico" />
+  <meta content='#1a73e8' name='theme-color' />
+  <meta name="keywords" content="Ryoushin no Shakkin wo Katagawari Shite Morau Jouken wa Nihon’ichi Kawaii Joshikousei to Issho ni Kurasu Koto Deshita Bahasa Indonesia">
+  <meta property="og:site_name" content="Akbar Jeffry">
+  <meta property='og:title' content="Because I Like You Bab <%= page %>">
+  <meta property='og:description' content="Ryoushin no Shakkin wo Katagawari Shite Morau Jouken wa Nihon’ichi Kawaii Joshikousei to Issho ni Kurasu Koto Deshita Bahasa Indonesia">
+  <!--title-->
+  <title><%= title %></title>
+  <!--css and script-->
+  <link rel="stylesheet" type="text/css" href="/public/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/font.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="/public/css/bkstyle.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="navlist">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/library">Library</a></li>
+        <li class="breadcrumb-item"><a href="/library/because-i-like-you">because-i-like-you</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Bab <%= page %></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="header">
+    <h1><%= title %></h1>
+    <span class="author"><%= author %> &bull; <%= date %></span>
+  </div>
+  <div class="body">
+  <!-- awal content -->
+  <%- post %>
+    <!-- Akhir Content-->
+    <br />
+||&nbsp;<a href="https://fyy.my.id/library/because-i-like-you-bab<%= page -1 %>">Previous</a>&nbsp;||&nbsp;<a href="https://because-i-like-you-bab<%= (page -0) + 1 %>">Next Chapter</a>&nbsp;||
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <br> <br>
+    <hr>
+  </div>
+  <!--Javacript-->
+  <script src="/public/js/bkscript.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+
 </html>

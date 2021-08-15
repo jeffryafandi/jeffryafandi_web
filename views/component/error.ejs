@@ -8,10 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta content='#1a73e8' name='theme-color'/>
   <meta property="og:site_name" content="Jeffryafandi">
-  <meta property='og:title' content="404 Error">
-  <meta property='og:description' content="404 - Page Not Found?!">
+  <meta property='og:title' content="<%= status %> Error">
+  <meta property='og:description' content="<%= status %> Error - <%= message %>?!!">
   <!--title-->
-  <title>404 Error - Page Not Found</title>
+  <title><%= status %> Error - <%= message %></title>
   <!--css and script-->
   <link rel="stylesheet" type="text/css" href="/public/css/style.min.css">
   <link rel="stylesheet" type="text/css" href="/public/css/font.min.css">
@@ -21,7 +21,7 @@
 
 <body class="dark">
   <div class="header">
-    <h1>404 Error - Page Not Found</h1>
+    <h1><%= status %> Error - <%= message %></h1>
     <span id="author" class="author"></span>
   </div>
   <div class="body">

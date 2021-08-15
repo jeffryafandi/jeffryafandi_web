@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
   res.status(404);
 
   if (req.accepts('html')) {
-    res.render('maintenance', { exp: "Sep 30, 2021 00:00:00" });
+    res.render('component/maintenance', { exp: "Sep 30, 2021 00:00:00" });
     return;
   }
 });*/
@@ -38,13 +38,13 @@ app.use(function(req, res, next) {
 app.get("/library/:am/:im", (req, res) => {
 
   function file() {
-    return matter.read(__dirname + '/views/library/${am}/' + req.params.im + '.md');
+    return matter.read(__dirname + `/views/library/${req.params.am}/${req.params.im}` + '.md');
   };
 
-  if (req.params.im > fc(req.params.am) && req.params.im < 0) {
-    res.render('404')
+  if (req.params.im > fc(req.params.am) || req.params.im < 0) {
+    res.render('component/404')
   } else
-    res.render("library/:am/01", {
+    res.render(`blog`, {
       post: file().content,
       title: file().data.title,
       description: file().data.description,
@@ -91,31 +91,34 @@ app.get("/library", (req, res) => {
 
 //AD for Raznar
 app.get("/ad1", async (req, res) => {
-  res.render("test")
+  res.render("component/test")
 })
 app.get("/ad2", async (req, res) => {
-  res.render("test1")
+  res.render("component/test1")
 })
 app.get("/ad3", async (req, res) => {
-  res.render("test2")
+  res.render("component/test2")
 })
 app.get("/library/:im", async (req, res) => {
-  res.render(`library/${req.params.im}/001`);
+  res.render(`library/${req.params.im}/0`);
 });
 
 app.get("/p/:year/:month/:id", async (req, res) => {
-  res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("404");
+  res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("component/404");
 });
 
-app.use(function(req, res, next) {
-  res.status(404);
-
-  // respond with html page
-  if (req.accepts('html')) {
-    res.render('404', { url: req.url });
-    return;
-  }
+app.use((req, res, next) => {
+  const error = new Error("Not found");
+  error.status = 404;
+  next(error);
 });
 
+// error handler middleware
+app.use((error, req, res, next) => {
+  res.status(error.status || 500).render(`component/error`, {
+    status: error.status || 500,
+    message: error.message || 'Internal Server Error',
+  });
+});
 
 app.listen(process.env.PORT);
