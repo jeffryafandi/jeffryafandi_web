@@ -21,6 +21,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link href="/public/css/bkstyle.css" rel="stylesheet">  
   <script data-ad-client="ca-pub-7084350918980282" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <% include "./component/function" %>
   <style>
   
 /* Anime List - Winfoku */
@@ -90,7 +91,7 @@
    
    <!-- KODE UNTUK ANIME "B" DISINI -->
          <% for (b of bs) { %>
-                <div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/<%= b %>'><%= b.replace("-"," ").toUpperCase() %><span class="badge bg-primary">LN</span><span class="badge rounded-pill bg-success">On-Going</span></a></div></div>
+                <div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/<%= b %>'><%= upLet(b.replace(/-/gi,' ')) %><span class="badge bg-primary">LN</span><span class="badge rounded-pill bg-success">On-Going</span></a></div></div>
          <% } %>
   </div>
   <div class='win-group'>
