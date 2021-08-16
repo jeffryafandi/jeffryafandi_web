@@ -6,12 +6,12 @@ const http = require("http"),
   fs = require('fs'),
   matter = require('gray-matter');
 var bodyParser = require("body-parser");
-
+/*
 //filter filecount
 function fc(filee) {
-  return fs.readdirSync(__dirname + `/views/library/${filee}`).length - 2;
+  return fs.readdirSync(__dirname + `/views/library/${filee}`).length - 1;
 }
-
+*/
 // app setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
@@ -38,13 +38,29 @@ app.use(function(req, res, next) {
 app.get("/library/:am/:im", (req, res) => {
 
   function file() {
-    return matter.read(__dirname + `/views/library/${req.params.am}/${req.params.im}` + '.md');
+    let ress = "0";
+    if (req.params.im.length == 1) ress = `0${req.params.im}`;
+    return matter.read(__dirname + `/views/library/${req.params.am}/${ress}` + '.md');
   };
 
-  if (req.params.im > fc(req.params.am) || req.params.im < 0) {
-    res.render('component/404')
-  } else
-    res.render(`blog`, {
+  // if (req.params.im > fc(req.params.am) || req.params.im < 0) {
+  // res.render('component/404')
+  // } else
+  res.render(`blog`, {
+    url: req.url,
+    post: file().content,
+    title: file().data.title,
+    description: file().data.description,
+    author: file().data.author,
+    date: file().data.date,
+    page: req.params.im
+  });
+});
+app.get("/library/:im", async (req, res) => {
+  function file() {
+    return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
+  };
+    res.render(`blog-parent`, {
       post: file().content,
       title: file().data.title,
       description: file().data.description,
@@ -56,9 +72,6 @@ app.get("/library/:am/:im", (req, res) => {
 app.get("/library", (req, res) => {
   const ress = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
-  function fil(input) {
-    return ress.filter(x => x.toLowerCase().startsWith(input))
-  }
   res.render("library", {
     upLet: function(words) {
       var separateWord = words.toLowerCase().split(' ');
@@ -68,32 +81,9 @@ app.get("/library", (req, res) => {
       }
       return separateWord.join(' ');
     },
-    as: fil("a"),
-    bs: fil("b"),
-    cs: fil("c"),
-    ds: fil("d"),
-    es: fil("e"),
-    fs: fil("f"),
-    gs: fil("g"),
-    hs: fil("h"),
-    is: fil("i"),
-    js: fil("j"),
-    ks: fil("k"),
-    ls: fil("l"),
-    ms: fil("m"),
-    ns: fil("n"),
-    os: fil("o"),
-    ps: fil("p"),
-    qs: fil("q"),
-    rs: fil("r"),
-    ss: fil("s"),
-    ts: fil("t"),
-    us: fil("u"),
-    vs: fil("v"),
-    ws: fil("w"),
-    xs: fil("x"),
-    ys: fil("y"),
-    zs: fil("a")
+    blog: function(input) {
+      return ress.filter(x => x.toLowerCase().startsWith(input))
+    }
   });
 });
 
@@ -107,14 +97,10 @@ app.get("/ad2", async (req, res) => {
 app.get("/ad3", async (req, res) => {
   res.render("component/test2")
 })
-app.get("/library/:im", async (req, res) => {
-  res.render(`library/${req.params.im}/0`);
-});
-
 app.get("/p/:year/:month/:id", async (req, res) => {
   res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("component/404");
 });
-/*
+
 app.use((req, res, next) => {
   const error = new Error("Not found");
   error.status = 404;
@@ -127,6 +113,5 @@ app.use((error, req, res, next) => {
     status: error.status || 500,
     message: error.message || 'Internal Server Error',
   });
-});*/
-
+});
 app.listen(process.env.PORT);
