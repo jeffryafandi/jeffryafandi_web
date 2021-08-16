@@ -87,7 +87,7 @@
       <% if (!blog("a").length) { %>
       <a> </a>
       <% } else { %>
-            <% for (b of blog("a") { %>
+            <% for (b of blog("a")) { %>
                    <div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/<%= b %>'><%= upLet(b.replace(/-/gi,' '))%></a></div></div>
             <% }} %>
 </div>
@@ -98,7 +98,7 @@
       <% if (!blog("b").length) { %>
       <a> </a>
       <% } else { %>
-            <% for (b of blog("a") { %>
+            <% for (b of blog("a")) { %>
                    <div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/<%= b %>'><%= upLet(b.replace(/-/gi,' '))%></a></div></div>
             <% }} %>
   </div>
@@ -109,7 +109,7 @@
       <% if (!blog("c").length) { %>
       <a> </a>
                   <% } else { %>
-                        <% for (b of blog("a") { %>
+                        <% for (b of blog("a")) { %>
                                <div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/<%= b %>'><%= upLet(b.replace(/-/gi,' '))%></a></div></div>
                         <% }} %>
   </div>
