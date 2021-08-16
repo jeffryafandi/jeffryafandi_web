@@ -73,16 +73,22 @@ app.get("/library", (req, res) => {
   const ress = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
   res.render("library", {
-    upLet: function(words) {
-      var separateWord = words.toLowerCase().split(' ');
-      for (var i = 0; i < separateWord.length; i++) {
-        separateWord[i] = separateWord[i].charAt(0).toUpperCase() +
-          separateWord[i].substring(1);
-      }
-      return separateWord.join(' ');
-    },
     blog: function(input) {
-      return ress.filter(x => x.toLowerCase().startsWith(input))
+      let abc = ress.filter(x => x.toLowerCase().startsWith(input));
+      let result = " ";
+      if(abc.length > 0){
+      for (b of abc) {
+        result += `<div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/${b}'>${upLet(b.replace(/-/gi,' '))}</a></div></div>`
+      }}
+return result;
+      function upLet(words) {
+        var separateWord = words.toLowerCase().split(' ');
+        for (var i = 0; i < separateWord.length; i++) {
+          separateWord[i] = separateWord[i].charAt(0).toUpperCase() +
+            separateWord[i].substring(1);
+        }
+        return separateWord.join(' ');
+      };
     }
   });
 });
