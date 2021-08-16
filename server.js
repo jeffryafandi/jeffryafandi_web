@@ -38,9 +38,7 @@ app.use(function(req, res, next) {
 app.get("/library/:am/:im", (req, res) => {
 
   function file() {
-    let ress = "0";
-    if (req.params.im.length == 1) ress = `0${req.params.im}`;
-    return matter.read(__dirname + `/views/library/${req.params.am}/${ress}` + '.md');
+    return matter.read(__dirname + `/views/library/${req.params.am}/${req.params.im}` + '.md');
   };
 
   // if (req.params.im > fc(req.params.am) || req.params.im < 0) {
@@ -76,11 +74,14 @@ app.get("/library", (req, res) => {
     blog: function(input) {
       let abc = ress.filter(x => x.toLowerCase().startsWith(input));
       let result = " ";
-      if(abc.length > 0){
-      for (b of abc) {
-        result += `<div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/${b}'>${upLet(b.replace(/-/gi,' '))}</a></div></div>`
-      }}
-return result;
+      if (abc.length > 0) {
+        for (b of abc) {
+
+          result += `<div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/${b}'>${upLet(b.replace(/-/gi,' '))}</a></div></div>`
+        }
+      }; //`
+      return result;
+
       function upLet(words) {
         var separateWord = words.toLowerCase().split(' ');
         for (var i = 0; i < separateWord.length; i++) {
@@ -90,6 +91,7 @@ return result;
         return separateWord.join(' ');
       };
     }
+    //`
   });
 });
 
@@ -106,7 +108,7 @@ app.get("/ad3", async (req, res) => {
 app.get("/p/:year/:month/:id", async (req, res) => {
   res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("component/404");
 });
-
+/*
 app.use((req, res, next) => {
   const error = new Error("Not found");
   error.status = 404;
@@ -119,5 +121,5 @@ app.use((error, req, res, next) => {
     status: error.status || 500,
     message: error.message || 'Internal Server Error',
   });
-});
+});*/
 app.listen(process.env.PORT);
