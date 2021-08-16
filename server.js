@@ -60,14 +60,14 @@ app.get("/library/:im", async (req, res) => {
   function file() {
     return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
   };
-    res.render(`blog-parent`, {
-      post: file().content,
-      title: file().data.title,
-      description: file().data.description,
-      author: file().data.author,
-      date: file().data.date,
-      page: req.params.im
-    });
+  res.render(`blog-parent`, {
+    post: file().content,
+    title: file().data.title,
+    description: file().data.description,
+    author: file().data.author,
+    date: file().data.date,
+    page: req.params.im
+  });
 });
 app.get("/library", (req, res) => {
   const ress = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
