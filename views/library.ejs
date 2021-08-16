@@ -93,12 +93,9 @@
    <div class='win-head'><a name='B'>B</a></div>
    
    <!-- KODE UNTUK ANIME "B" DISINI -->
-      <% if (!blog("b").length || blog("b").length == 0) { %>
-      <a> </a>
-      <% } else { %>
             <% for (b of blog("b")) { %>
                    <div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/<%= b %>'><%= upLet(b.replace(/-/gi,' '))%></a></div></div>
-            <% }} %>
+            <% } %>
   </div>
   <div class='win-group'>
    <div class='win-head'><a name='C'>C</a></div>
