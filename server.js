@@ -70,6 +70,11 @@ app.get("/library/:im", async (req, res) => {
 app.get("/library", (req, res) => {
   const ress = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
+
+
+
+
+//.     Jangan tambahin code dibawah sini ._.
   res.render("library", {
     blog: function(input) {
       let abc = ress.filter(x => x.toLowerCase().startsWith(input));
