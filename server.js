@@ -51,7 +51,7 @@ app.get("/library/:am/:im", (req, res) => {
     description: file().data.description,
     author: file().data.author,
     date: file().data.date,
-    current: req.params.im,
+    currents: req.params.im,
     pages: fc(req.params.am),
     blog: req.params.am
   });
