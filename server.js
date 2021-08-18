@@ -45,7 +45,7 @@ app.get("/library/:am/:im", (req, res) => {
   // res.render('component/404')
   // } else
     const page = req.params.im || 1
-    const perPage = 5
+    const perPage = 3
     
   res.render(`blog`, {
     url: req.url,
