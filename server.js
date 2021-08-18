@@ -55,7 +55,7 @@ app.get("/library/:am/:im", (req, res) => {
     author: file().data.author,
     date: file().data.date,
     current: page,
-    pages: Math.ceil(fc(req.params.am) / perPage),
+    pages: fc(req.params.am),
     blog: req.params.am
   });
 });
