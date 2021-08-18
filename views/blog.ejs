@@ -57,7 +57,7 @@
                     <% } %>
                     <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
                         <% if (i == current) { %>
-                            <li class="active"><a class="page-link" href="#" tabindex="-1" aria-disabled="true"><%= i %></a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#" tabindex="-1" aria-disabled="true"><%= i %></a></li>
                         <% } else { %>
                             <li class="page-item"><a class="page-link" href="/library/<%= blog %>/<%= i %>"><%= i %></a></li>
                         <% } %>
