@@ -13,7 +13,7 @@
   <meta content='#1a73e8' name='theme-color' />
   <meta name="keywords" content="Ryoushin no Shakkin wo Katagawari Shite Morau Jouken wa Nihon’ichi Kawaii Joshikousei to Issho ni Kurasu Koto Deshita Bahasa Indonesia">
   <meta property="og:site_name" content="Akbar Jeffry">
-  <meta property='og:title' content="Because I Like You Bab <%= currents %>">
+  <meta property='og:title' content="Because I Like You Bab <%= current %>">
   <meta property='og:description' content="Ryoushin no Shakkin wo Katagawari Shite Morau Jouken wa Nihon’ichi Kawaii Joshikousei to Issho ni Kurasu Koto Deshita Bahasa Indonesia">
   <!--title-->
   <title><%= title %></title>
@@ -30,7 +30,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/library">Library</a></li>
         <li class="breadcrumb-item"><a href="/library/because-i-like-you">because-i-like-you</a></li>
-        <li class="breadcrumb-item active" aria-current="current">Bab <%= currents %></li>
+        <li class="breadcrumb-item active" aria-current="current">Bab <%= current %></li>
       </ol>
     </nav>
   </div>
@@ -43,31 +43,31 @@
   <%- post %>
     <!-- Akhir Content-->
     <br />
-         <% if (currents > 0) { %>
+            <% if (pages > 0) { %>
                 <ul class="pagination text-center">
                     <% if (current == 1) { %>
                         <li class="disabled"><a>First</a></li>
                     <% } else { %>
-                        <li><a href="/library/<%= blog %>/1">First</a></li>
+                        <li><a href="/products/1">First</a></li>
                     <% } %>
                     <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
                     <% if (i !== 1) { %>
                         <li class="disabled"><a>...</a></li>
                     <% } %>
-                    <% for (; i <= (Number(current) + 4) && i <= currents; i++) { %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
                         <% if (i == current) { %>
                             <li class="active"><a><%= i %></a></li>
                         <% } else { %>
-                            <li><a href="/library/<%= blog %>/<%= i %>"><%= i %></a></li>
+                            <li><a href="/products/<%= i %>"><%= i %></a></li>
                         <% } %>
-                        <% if (i == Number(current) + 4 && i < currents) { %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
                             <li class="disabled"><a>...</a></li>
                         <% } %>
                     <% } %>
-                    <% if (current == currents) { %>
+                    <% if (current == pages) { %>
                         <li class="disabled"><a>Last</a></li>
                     <% } else { %>
-                        <li><a href="/library/<%= blog %>/<%= currents %>">Last</a></li>
+                        <li><a href="/products/<%= pages %>">Last</a></li>
                     <% } %>
                 </ul>
             <% } %>

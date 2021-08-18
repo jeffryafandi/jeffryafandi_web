@@ -44,6 +44,9 @@ app.get("/library/:am/:im", (req, res) => {
   // if (req.params.im > fc(req.params.am) || req.params.im < 0) {
   // res.render('component/404')
   // } else
+    const page = req.params.im || 1
+    const perPage = 5
+    
   res.render(`blog`, {
     url: req.url,
     post: file().content,
@@ -51,8 +54,8 @@ app.get("/library/:am/:im", (req, res) => {
     description: file().data.description,
     author: file().data.author,
     date: file().data.date,
-    currents: req.params.im,
-    pages: fc(req.params.am),
+    current: page,
+    pages: Math.ceil(fc(req.params.am) / perPage),
     blog: req.params.am
   });
 });
