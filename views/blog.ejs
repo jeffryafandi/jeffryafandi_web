@@ -43,18 +43,7 @@
   <%- post %>
     <!-- Akhir Content-->
     <br />
-    <nav aria-label="Page navigation example">
-    
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
+    <nav aria-label="pagination">
             <% if (pages > 0) { %>
              <ul class="pagination justify-content-center">
                     <% if (current == 1) { %>
@@ -81,7 +70,7 @@
                     <% } else { %>
                         <li class="page-item"><a class="page-link" href="/library/<%= blog %>/<%= current +1 %>">Next</a></li>
                     <% } %>
-                </ul>
+                </ul></nav>
             <% } %>
     <br> <br>
     <hr>
