@@ -6,12 +6,10 @@ const http = require("http"),
   fs = require('fs'),
   matter = require('gray-matter');
 var bodyParser = require("body-parser");
-/*
 //filter filecount
 function fc(filee) {
   return fs.readdirSync(__dirname + `/views/library/${filee}`).length - 1;
 }
-*/
 // app setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
@@ -53,7 +51,9 @@ app.get("/library/:am/:im", (req, res) => {
     description: file().data.description,
     author: file().data.author,
     date: file().data.date,
-    page: req.params.im
+    current: req.params.im,
+    pages: fc(req.params.am),
+    blog: req.params.am
   });
 });
 app.get("/library/:im", async (req, res) => {
