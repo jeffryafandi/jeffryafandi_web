@@ -72,7 +72,7 @@ app.get("/library/search", async (req, res) => {
       end.push({ "file": { "title": mat.data.title, "description": mat.data.description, "author": mat.data.author, "date": mat.data.date, "image": mat.data.image }, "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3) })
     })
   });
-  let end_s = end.filter(x => x.file.title.includes("Because")).map(x => x.file);
+  let end_s = end.map(x => x.file);
   let content = " ";
   for (const ends of end_s) {
     content += `<article class='hentry'>
