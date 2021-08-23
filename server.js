@@ -61,44 +61,49 @@ app.get("/library/:am/:im", (req, res) => {
 });
 
 app.get("/library/search", async (req, res) => {
-  let end = " ";
-  function mat(folder, name){
-   return matter.read(__dirname + `/views/library/${folder}/${name}`)
-  }
+  let end = [];
+
   const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).filter(file => file.isDirectory()).map(dirent => dirent.name)
   let outp;
   folders.forEach(folder => {
     let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md")
     fol.forEach(name => {
       const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
-      end += `<article class='hentry'>
+      end.push({ name: { "title": mat.data.title, "description": mat.data.description, "author": mat.data.author, "date": mat.data.date, "image": mat.data.image }, "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3) })
+    })
+  });
+  let end_s = end.filter(x => x.file.title.includes("Because")).map(x => x.file);
+  let content = " ";
+  for (const ends of end_s) {
+    content += `<article class='hentry'>
       <div class='postThumbnail'>
-      <a href='https://fyy.my.id/2021/04/yumemiru-danshi-wa-genjitsushugisha-v2_28.html'>
-      <img alt='${mat.data.title}' class='imgThumb lazy' data-src='https://lh3.googleusercontent.com/-W9g_l9jZaIU/YIh60-uhhtI/AAAAAAAACFw/VRvDEssvHJ4Q7voJLWwRN1ScPatzL3vzwCLcBGAsYHQ/w600-h300-p-k-no-nu/1619557043943043-0.png' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='/>
+      <a href='${ends.url}'>
+      <img alt='${ends.title}' class='imgThumb lazy' data-src='${ends.image}' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='/>
       </a>
       </div>
       <div class='postContent'>
       <div class='postHeader'>
       <div class='postLabel' data-text='in'>
-      <a aria-label='${mat.data.title}' data-text='${mat.data.title}' href='https://fyy.my.id/search/label/Yumemiru%20Danshi%20wa%20Genjitsushugisha' rel='tag'>
+      <a aria-label='${ends.title}' data-text='${ends.title}' href='${ends.url}' rel='tag'>
       </a>
       </div>
       </div>
       <h2 class='postTitle'>
-      <a href='https://fyy.my.id/2021/04/yumemiru-danshi-wa-genjitsushugisha-v2_28.html' rel='bookmark'>
-      ${mat.data.title}
+      <a href='${ends.url}' rel='bookmark'>
+      ${ends.title}
       </a>
       </h2>
       <div class='postInfo'>
-      <time class='postTimestamp updated' data-text='By Jeffry &#8212; Mei 22, 2021'></time>
+      <time class='postTimestamp updated' data-text='By ${ends.author} &#8212; ${ends.date}'></time>
       </div>
       </div>
       </article>`
-    })
-  });
+  }
   res.render(`search`, {
-    content: end,
-    page: req.params.im
+    content: content,
+    title: end_s.title,
+    author: end_s.author,
+    description: end_s.description,
   });
 })
 app.get("/library/:im", async (req, res) => {
