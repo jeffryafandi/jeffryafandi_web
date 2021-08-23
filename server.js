@@ -65,9 +65,9 @@ app.get("/library/search", async (req, res) => {
   const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).filter(file => file.isDirectory()).map(dirent => dirent.name)
   let outp;
   folders.forEach(folder => {
-    let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).map(x => x.name);
+    let fol = fs.readdirSync(__dirname + `/views/library/${folder}`)
     fol.forEach(name => {
-      const mat = matter.read(__dirname + `/views/library/${folder}/${name}` + '.md')
+      const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
       end += `<article class='hentry'>
       <div class='postThumbnail'>
       <a href='https://fyy.my.id/2021/04/yumemiru-danshi-wa-genjitsushugisha-v2_28.html'>
