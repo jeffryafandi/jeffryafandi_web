@@ -64,7 +64,7 @@ app.get("/library/search", async (req, res) => {
   let end = " ";
   const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).filter(file => file.isDirectory()).map(dirent => dirent.name)
   let outp;
-  for (const folder of folders) {
+  folders.forEach(folder => {
     let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).map(x => x.name);
     fol.forEach(name => {
       const mat = matter.read(__dirname + `/views/library/${folder}/${name}` + '.md')
@@ -92,7 +92,7 @@ app.get("/library/search", async (req, res) => {
       </div>
       </article>`
     })
-  };
+  });
   res.render(`search`, {
     content: end,
     page: req.params.im
