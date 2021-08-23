@@ -44,9 +44,9 @@ app.get("/library/:am/:im", (req, res) => {
   // if (req.params.im > fc(req.params.am) || req.params.im < 0) {
   // res.render('component/404')
   // } else
-    const page = req.params.im || 1
-    const perPage = 3
-    
+  const page = req.params.im || 1
+  const perPage = 3
+
   res.render(`blog`, {
     url: req.url,
     post: file().content,
@@ -59,6 +59,45 @@ app.get("/library/:am/:im", (req, res) => {
     blog: req.params.am
   });
 });
+
+app.get("/library/search", async (req, res) => {
+  let end = " ";
+  const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).filter(file => file.isDirectory()).map(dirent => dirent.name)
+  let outp;
+  for (const folder of folders) {
+    let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x.name.replace(/-/gi," ").includes("a")).map(x => x.name);
+    fol.forEach(name => {
+      const mat = matter.read(__dirname + `/views/library/${folder}/${name}` + '.md')
+      end += `<article class='hentry'>
+      <div class='postThumbnail'>
+      <a href='https://fyy.my.id/2021/04/yumemiru-danshi-wa-genjitsushugisha-v2_28.html'>
+      <img alt='${mat.data.title}' class='imgThumb lazy' data-src='https://lh3.googleusercontent.com/-W9g_l9jZaIU/YIh60-uhhtI/AAAAAAAACFw/VRvDEssvHJ4Q7voJLWwRN1ScPatzL3vzwCLcBGAsYHQ/w600-h300-p-k-no-nu/1619557043943043-0.png' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='/>
+      </a>
+      </div>
+      <div class='postContent'>
+      <div class='postHeader'>
+      <div class='postLabel' data-text='in'>
+      <a aria-label='${mat.data.title}' data-text='${mat.data.title}' href='https://fyy.my.id/search/label/Yumemiru%20Danshi%20wa%20Genjitsushugisha' rel='tag'>
+      </a>
+      </div>
+      </div>
+      <h2 class='postTitle'>
+      <a href='https://fyy.my.id/2021/04/yumemiru-danshi-wa-genjitsushugisha-v2_28.html' rel='bookmark'>
+      ${mat.data.title}
+      </a>
+      </h2>
+      <div class='postInfo'>
+      <time class='postTimestamp updated' data-text='By Jeffry &#8212; Mei 22, 2021'></time>
+      </div>
+      </div>
+      </article>`
+    })
+  };
+  res.render(`search`, {
+    content: end,
+    page: req.params.im
+  });
+})
 app.get("/library/:im", async (req, res) => {
   function file() {
     return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
@@ -79,7 +118,7 @@ app.get("/library", (req, res) => {
 
 
 
-//.     Jangan tambahin code dibawah sini ._.
+  //.     Jangan tambahin code dibawah sini ._.
   res.render("library", {
     blog: function(input) {
       let abc = ress.filter(x => x.toLowerCase().startsWith(input));
