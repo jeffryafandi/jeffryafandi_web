@@ -65,7 +65,7 @@ app.get("/library/search", async (req, res) => {
   const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).filter(file => file.isDirectory()).map(dirent => dirent.name)
   let outp;
   for (const folder of folders) {
-    let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x.name.includes("a")).map(x => x.name);
+    let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).map(x => x.name);
     fol.forEach(name => {
       const mat = matter.read(__dirname + `/views/library/${folder}/${name}` + '.md')
       end += `<article class='hentry'>
