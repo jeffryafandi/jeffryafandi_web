@@ -11,10 +11,10 @@
   <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/x-icon" href="/public/assets/favicon.ico" />
   <meta content='#1a73e8' name='theme-color' />
-  <meta name="keywords" content="Ryoushin no Shakkin wo Katagawari Shite Morau Jouken wa Nihon’ichi Kawaii Joshikousei to Issho ni Kurasu Koto Deshita Bahasa Indonesia">
+  <meta name="keywords" content="<%= description %>">
   <meta property="og:site_name" content="Akbar Jeffry">
-  <meta property='og:title' content="Because I Like You Bab <%= current %>">
-  <meta property='og:description' content="Ryoushin no Shakkin wo Katagawari Shite Morau Jouken wa Nihon’ichi Kawaii Joshikousei to Issho ni Kurasu Koto Deshita Bahasa Indonesia">
+  <meta property='og:title' content="<%= title %> + <%= current %>">
+  <meta property='og:description' content="<%= description %>">
   <!--title-->
   <title><%= title %></title>
   <!--css and script-->
@@ -29,8 +29,8 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/library">Library</a></li>
-        <li class="breadcrumb-item"><a href="/library/because-i-like-you">because-i-like-you</a></li>
-        <li class="breadcrumb-item active" aria-current="current">Bab <%= current %></li>
+        <li class="breadcrumb-item"><a href="/library/<%= blog %>"><%= title %></a></li>
+        <li class="breadcrumb-item active" aria-current="current"><%= current %></li>
       </ol>
     </nav>
   </div>
