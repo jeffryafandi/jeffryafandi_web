@@ -69,10 +69,10 @@ app.get("/library/search", async (req, res) => {
     let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md")
     fol.forEach(name => {
       const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
-      end.push({ "file": { "title": mat.data.title, "description": mat.data.description, "author": mat.data.author, "date": mat.data.date, "image": mat.data.image }, "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3) })
+      end.push({ "file": { "title": mat.data.title, "description": mat.data.description, "author": mat.data.author, "date": mat.data.date, "image": mat.data.image }, "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3),"keyword": mat.data.title.toLowerCase() })
     })
   });
-  let end_s = end.map(x => x.file);
+  let end_s = end.filter(x=> (x.file.keyword).includes("because")).map(x => x.file);
   let content = " ";
   for (const ends of end_s) {
     content += `<article class='hentry'>
