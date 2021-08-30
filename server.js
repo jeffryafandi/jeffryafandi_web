@@ -23,8 +23,8 @@ app.get("/", function(req, res) {
     url: req.url
   });
 });
+/* [ Maintenance Management ] */
 /*
-//Maintenance Management
 app.use(function(req, res, next) {
   res.status(404);
 
@@ -41,9 +41,6 @@ app.get("/library/:am/:im", (req, res) => {
     return matter.read(__dirname + `/views/library/${req.params.am}/${req.params.im}` + '.md');
   };
 
-  // if (req.params.im > fc(req.params.am) || req.params.im < 0) {
-  // res.render('component/404')
-  // } else
   const page = req.params.im || 1
   const perPage = 3
 
