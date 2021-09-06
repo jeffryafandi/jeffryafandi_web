@@ -21,7 +21,9 @@
     "body-parser": "*",
     "ejs": "*",
     "gray-matter": "*",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "better-logging": "*",
+    "chalk": "*"
   },
   "engines": {
     "node": "12.x",

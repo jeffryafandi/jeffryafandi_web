@@ -4,10 +4,15 @@ const http = require("http"),
   path = require("path"),
   config = require("./config.json"),
   fs = require('fs'),
-  matter = require('gray-matter');
+  matter = require('gray-matter'),
+  chalk = require('chalk');
 var bodyParser = require("body-parser");
-var morgan = require('morgan')
-//filter filecount
+var morgan = require('morgan');
+
+//Function and other
+require('better-logging')(console, {
+  format: ctx => `${ctx.time24} ${ctx.time12} ${ctx.date} ${ctx.type} ${ctx.unix} ${ctx.STAMP('lel', chalk.blue)} ${ctx.msg}`
+});
 function fc(filee) {
   return fs.readdirSync(__dirname + `/views/library/${filee}`).length - 1;
 }
