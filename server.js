@@ -257,6 +257,23 @@ app.use((error, req, res, next) => {
     message: error.message || 'Internal Server Error',
   });
 });*/
+
 var port = process.env.PORT || 8080;
 console.info(`Listening to http://localhost:${port}`)
 app.listen(port);
+
+
+/*.    DONT TOUCH THIS CODE   */
+
+process.on("uncaughtException", (err) => {
+  console.log("Uncaught Exception: " + err);
+  process.exit(1);
+});
+process.on("unhandledRejection", (reason, promise) => {
+  console.log(
+    "[FATAL] Possibly Unhandled Rejection at: Promise ",
+    promise,
+    " reason: ",
+    reason.message
+  );
+});
