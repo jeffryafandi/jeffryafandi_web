@@ -140,7 +140,7 @@ app.get("/library/:im", (req, res) => {
     const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).map(x => x.name)
     let outp;
     folders.forEach(folder => {
-      let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md").map(x => x.name)
+      let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md")
       fol.forEach(name => {
         const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
         end.push({
