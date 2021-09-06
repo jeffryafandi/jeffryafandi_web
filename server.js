@@ -6,6 +6,7 @@ const http = require("http"),
   fs = require('fs'),
   matter = require('gray-matter');
 var bodyParser = require("body-parser");
+var morgan = require('morgan')
 //filter filecount
 function fc(filee) {
   return fs.readdirSync(__dirname + `/views/library/${filee}`).length - 1;
@@ -13,6 +14,7 @@ function fc(filee) {
 // app setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
+app.use(morgan('combined'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
@@ -122,7 +124,11 @@ app.get("/library/:am/:im", (req, res) => {
 app.get("/library/:im", (req, res) => {
   if (req.params.im !== "search") {
     function file() {
-      return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
+      try {
+      matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
+      } catch (err){
+        console.log("")
+      }
     };
     res.render(`blog-parent`, {
       post: file().content,

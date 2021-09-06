@@ -20,7 +20,8 @@
     "fs": "*",
     "body-parser": "*",
     "ejs": "*",
-    "gray-matter": "*"
+    "gray-matter": "*",
+    "morgan": "^1.10.0"
   },
   "engines": {
     "node": "12.x",
