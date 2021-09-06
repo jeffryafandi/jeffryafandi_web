@@ -121,14 +121,10 @@ app.get("/library/:am/:im", (req, res) => {
   });
 })*/
 app.get("/library/:im", (req, res) => {
-  if (req.params.im !== "search") {
     function file() {
-      try {
-      matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
-      } catch (err){
-        console.log("")
-      }
+     return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
     };
+    if (req.params.im !== "search") {
     res.render(`blog-parent`, {
       post: file().content,
       title: file().data.title,
@@ -137,6 +133,7 @@ app.get("/library/:im", (req, res) => {
       date: file().data.date,
       page: req.params.im
     });
+    
   }
   else {
     var q = req.query.q;
