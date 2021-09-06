@@ -121,83 +121,83 @@ app.get("/library/:am/:im", (req, res) => {
   });
 })*/
 app.get("/library/:im", (req, res) => {
-    function file() {
-      let fold = ''+ req.params.im
-      if(req.params.im == "search") fold = 'because-i-like-you'
-     return matter.read(__dirname + `/views/library/${fold}/0` + '.md');
-    };
-    if (req.params.im !== "search") {
-    res.render(`blog-parent`, {
-      post: file().content,
-      title: file().data.title,
-      description: file().data.description,
-      author: file().data.author,
-      date: file().data.date,
-      page: req.params.im
-    });
-    
-  }
-  else {
-    var q = req.query.q;
-    let end = [];
-
-    const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).map(x => x.name)
-    let outp;
-    folders.forEach(folder => {
-      let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md")
-      fol.forEach(name => {
-        const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
-        end.push({
-          "title": mat.data.title,
-          "description": mat.data.description,
-          "author": mat.data.author,
-          "date": mat.data.date,
-          "image": mat.data.image,
-          "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3),
-          "keyword": "" + mat.data.title
-        });
+  switch ("" + req.params.im) {
+    default:
+      res.render(`blog-parent`, {
+        post: file().content,
+        title: file().data.title,
+        description: file().data.description,
+        author: file().data.author,
+        date: file().data.date,
+        page: req.params.im
       });
-    });
-    let end_s;
-    if (q) {
-      end_s = end.filter(x => x.keyword.toLowerCase().includes(q.toLowerCase()));
-    }
-    else {
-      end_s = end;
-    };
-    let content = " ";
-    for (const ends of end_s) {
-      content += `<article class='hentry'>
-      <div class='postThumbnail'>
-      <a href='${ends.url}'>
-      <img alt='${ends.title}' class='imgThumb lazy' data-src='${ends.image}' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='/>
-      </a>
-      </div>
-      <div class='postContent'>
-      <div class='postHeader'>
-      <div class='postLabel' data-text='in'>
-      <a aria-label='${ends.title}' data-text='${ends.title}' href='${ends.url}' rel='tag'>
-      </a>
-      </div>
-      </div>
-      <h2 class='postTitle'>
-      <a href='${ends.url}' rel='bookmark'>
-      ${ends.title}
-      </a>
-      </h2>
-      <div class='postInfo'>
-      <time class='postTimestamp updated' data-text='By ${ends.author} &#8212; ${ends.date}'></time>
-      </div>
-      </div>
-      </article>`
-    }
-    res.render(`search`, {
-      content: content,
-      title: end_s.title,
-      query: q || " ",
-      author: end_s.author,
-      description: end_s.description,
-    });
+      break;
+    case "search":
+        let end = [];
+    
+        const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).map(x => x.name)
+        let outp;
+        folders.forEach(folder => {
+          let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md")
+          fol.forEach(name => {
+            const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
+            end.push({
+              "title": mat.data.title,
+              "description": mat.data.description,
+              "author": mat.data.author,
+              "date": mat.data.date,
+              "image": mat.data.image,
+              "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3),
+              "keyword": "" + mat.data.title
+            });
+          });
+        });
+        let end_s;
+        if (q) {
+          end_s = end.filter(x => x.keyword.toLowerCase().includes(q.toLowerCase()));
+        }
+        else {
+          end_s = end;
+        };
+        let content = " ";
+        for (const ends of end_s) {
+          content += `<article class='hentry'>
+          <div class='postThumbnail'>
+          <a href='${ends.url}'>
+          <img alt='${ends.title}' class='imgThumb lazy' data-src='${ends.image}' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='/>
+          </a>
+          </div>
+          <div class='postContent'>
+          <div class='postHeader'>
+          <div class='postLabel' data-text='in'>
+          <a aria-label='${ends.title}' data-text='${ends.title}' href='${ends.url}' rel='tag'>
+          </a>
+          </div>
+          </div>
+          <h2 class='postTitle'>
+          <a href='${ends.url}' rel='bookmark'>
+          ${ends.title}
+          </a>
+          </h2>
+          <div class='postInfo'>
+          <time class='postTimestamp updated' data-text='By ${ends.author} &#8212; ${ends.date}'></time>
+          </div>
+          </div>
+          </article>`
+        }
+        res.render(`search`, {
+          content: content,
+          title: end_s.title,
+          query: q || " ",
+          author: end_s.author,
+          description: end_s.description,
+        });
+  }
+
+  function file() {
+    let fold = '' + req.params.im
+    if (req.params.im == "search") fold = 'because-i-like-you'
+    return matter.read(__dirname + `/views/library/${fold}/0` + '.md');
   }
 });
 app.get("/library", (req, res) => {
