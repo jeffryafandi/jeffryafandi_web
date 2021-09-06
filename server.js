@@ -4,7 +4,7 @@ const http = require("http"),
   path = require("path"),
   config = require("./config.json"),
   fs = require('fs'),
-  matter = require('gray-matter'),
+  matter = require('gray-matter');
 var bodyParser = require("body-parser");
 
 //Function and other
