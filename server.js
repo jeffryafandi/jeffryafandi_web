@@ -120,49 +120,50 @@ app.get("/library/:am/:im", (req, res) => {
   });
 })*/
 app.get("/library/:im", (req, res) => {
-  if(req.params.im !== "search"){
-  function file() {
-    return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
-  };
-  res.render(`blog-parent`, {
-    post: file().content,
-    title: file().data.title,
-    description: file().data.description,
-    author: file().data.author,
-    date: file().data.date,
-    page: req.params.im
-  });}
-  else {
-    var q = req.query.q;
-  let end = [];
-
-  const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true })
-  let outp;
-  folders.forEach(folder => {
-    let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md").map(x => x.name)
-    fol.forEach(name => {
-      const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
-      end.push({
-        "title": mat.data.title,
-        "description": mat.data.description,
-        "author": mat.data.author,
-        "date": mat.data.date,
-        "image": mat.data.image,
-        "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3),
-        "keyword": "" + mat.data.title
-      });
+  if (req.params.im !== "search") {
+    function file() {
+      return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
+    };
+    res.render(`blog-parent`, {
+      post: file().content,
+      title: file().data.title,
+      description: file().data.description,
+      author: file().data.author,
+      date: file().data.date,
+      page: req.params.im
     });
-  });
-  let end_s;
-  if (q) {
-    end_s = end.filter(x => x.keyword.toLowerCase().includes(q.toLowerCase())).map(x => x);
   }
   else {
-    end_s = end;
-  };
-  let content = " ";
-  for (const ends of end_s) {
-    content += `<article class='hentry'>
+    var q = req.query.q;
+    let end = [];
+
+    const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).map(x => x.name)
+    let outp;
+    folders.forEach(folder => {
+      let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md").map(x => x.name)
+      fol.forEach(name => {
+        const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
+        end.push({
+          "title": mat.data.title,
+          "description": mat.data.description,
+          "author": mat.data.author,
+          "date": mat.data.date,
+          "image": mat.data.image,
+          "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3),
+          "keyword": "" + mat.data.title
+        });
+      });
+    });
+    let end_s;
+    if (q) {
+      end_s = end.filter(x => x.keyword.toLowerCase().includes(q.toLowerCase()));
+    }
+    else {
+      end_s = end;
+    };
+    let content = " ";
+    for (const ends of end_s) {
+      content += `<article class='hentry'>
       <div class='postThumbnail'>
       <a href='${ends.url}'>
       <img alt='${ends.title}' class='imgThumb lazy' data-src='${ends.image}' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='/>
@@ -185,14 +186,14 @@ app.get("/library/:im", (req, res) => {
       </div>
       </div>
       </article>`
-  }
-  res.render(`search`, {
-    content: content,
-    title: end_s.title,
-    query: q || " ",
-    author: end_s.author,
-    description: end_s.description,
-  });
+    }
+    res.render(`search`, {
+      content: content,
+      title: end_s.title,
+      query: q || " ",
+      author: end_s.author,
+      description: end_s.description,
+    });
   }
 });
 app.get("/library", (req, res) => {
