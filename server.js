@@ -5,21 +5,15 @@ const http = require("http"),
   config = require("./config.json"),
   fs = require('fs'),
   matter = require('gray-matter'),
-  chalk = require('chalk');
 var bodyParser = require("body-parser");
-var morgan = require('morgan');
 
 //Function and other
-require('better-logging')(console, {
-  format: ctx => `${ctx.time24} ${ctx.time12} ${ctx.date} ${ctx.type} ${ctx.unix} ${ctx.STAMP('lel', chalk.blue)} ${ctx.msg}`
-});
 function fc(filee) {
   return fs.readdirSync(__dirname + `/views/library/${filee}`).length - 1;
 }
 // app setup
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
-app.use(morgan('combined'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
