@@ -137,14 +137,10 @@ app.get("/library/:im", (req, res) => {
   }
 });
 app.get("/library", (req, res) => {
-  const ress = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true })
-
-
-
   //.     Jangan tambahin code dibawah sini ._.
   res.render("library", {
     blog: function(input) {
-      let abc = ress.filter(x => x.startsWith(input));
+      let abc = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true }).filter(x => x.startsWith(input)).map(x => x.name)
       let result = " ";
       if (abc.length > 0) {
         for (b of abc) {
