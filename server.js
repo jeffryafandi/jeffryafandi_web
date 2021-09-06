@@ -139,7 +139,7 @@ app.get("/library/:im", (req, res) => {
   const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true })
   let outp;
   folders.forEach(folder => {
-    let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md")
+    let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md").map(x => x.name)
     fol.forEach(name => {
       const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
       end.push({
@@ -155,7 +155,7 @@ app.get("/library/:im", (req, res) => {
   });
   let end_s;
   if (q) {
-    end_s = end.filter(x => x.keyword.toLowerCase().includes(q.toLowerCase()));
+    end_s = end.filter(x => x.keyword.toLowerCase().includes(q.toLowerCase())).map(x => x);
   }
   else {
     end_s = end;
