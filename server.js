@@ -144,7 +144,7 @@ app.get("/library", (req, res) => {
   //.     Jangan tambahin code dibawah sini ._.
   res.render("library", {
     blog: function(input) {
-      let abc = ress.filter(x => x.toLowerCase().startsWith(input));
+      let abc = ress.filter(x => x.startsWith(input));
       let result = " ";
       if (abc.length > 0) {
         for (b of abc) {
