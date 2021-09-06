@@ -57,19 +57,34 @@ app.get("/library/:am/:im", (req, res) => {
   });
 });
 
-app.get("/library/search", async (req, res) => {
+app.get("/library/search", (req, res) => {
+  var q = req.query.q;
   let end = [];
 
-  const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).filter(file => file.isDirectory()).map(dirent => dirent.name)
+  const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true })
   let outp;
   folders.forEach(folder => {
     let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md")
     fol.forEach(name => {
       const mat = matter.read(__dirname + `/views/library/${folder}/${name}`)
-      end.push({ "file": { "title": mat.data.title, "description": mat.data.description, "author": mat.data.author, "date": mat.data.date, "image": mat.data.image }, "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3),"keyword": (mat.data.title).toLowerCase() })
-    })
+      end.push({
+        "title": mat.data.title,
+        "description": mat.data.description,
+        "author": mat.data.author,
+        "date": mat.data.date,
+        "image": mat.data.image,
+        "url": "https://fyy.my.id/library/" + folder + "/" + name.slice(0, -3),
+        "keyword": "" + mat.data.title
+      });
+    });
   });
-  let end_s = end.filter(x=> (x.file.keyword).includes("because")).map(x => x.file);
+  let end_s;
+  if (q) {
+    end_s = end.filter(x => x.keyword.toLowerCase().includes(q.toLowerCase()));
+  }
+  else {
+    end_s = end;
+  };
   let content = " ";
   for (const ends of end_s) {
     content += `<article class='hentry'>
@@ -99,11 +114,12 @@ app.get("/library/search", async (req, res) => {
   res.render(`search`, {
     content: content,
     title: end_s.title,
+    query: q || " ",
     author: end_s.author,
     description: end_s.description,
   });
 })
-app.get("/library/:im", async (req, res) => {
+app.get("/library/:im", (req, res) => {
   function file() {
     return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
   };
@@ -117,9 +133,7 @@ app.get("/library/:im", async (req, res) => {
   });
 });
 app.get("/library", (req, res) => {
-  const ress = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
-
-
+  const ress = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true })
 
 
 
@@ -150,16 +164,19 @@ app.get("/library", (req, res) => {
 });
 
 //AD for Raznar
-app.get("/ad1", async (req, res) => {
+app.get("/ad1", (req, res) => {
   res.render("component/test")
 })
-app.get("/ad2", async (req, res) => {
+app.get("/ad2", (req, res) => {
   res.render("component/test1")
 })
-app.get("/ad3", async (req, res) => {
+app.get("/ad3", (req, res) => {
   res.render("component/test2")
 })
-app.get("/p/:year/:month/:id", async (req, res) => {
+app.get("/tes", (req, res) => {
+  res.render("blogt")
+})
+app.get("/p/:year/:month/:id", (req, res) => {
   res.render(`post/${req.params.year}/${req.params.month}/${req.params.id}`) || res.render("component/404");
 });
 /*
@@ -176,4 +193,6 @@ app.use((error, req, res, next) => {
     message: error.message || 'Internal Server Error',
   });
 });*/
-app.listen(process.env.PORT);
+var port = process.env.PORT || 8080;
+console.info(`Listening to http://localhost:${port}`)
+app.listen(port);
