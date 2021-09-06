@@ -122,7 +122,9 @@ app.get("/library/:am/:im", (req, res) => {
 })*/
 app.get("/library/:im", (req, res) => {
     function file() {
-     return matter.read(__dirname + `/views/library/${req.params.im}/0` + '.md');
+      let fold = ''+ req.params.im
+      if(req.params.im == "search") fold = 'because-i-like-you'
+     return matter.read(__dirname + `/views/library/${fold}/0` + '.md');
     };
     if (req.params.im !== "search") {
     res.render(`blog-parent`, {
