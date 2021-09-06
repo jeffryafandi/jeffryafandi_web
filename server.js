@@ -121,6 +121,8 @@ app.get("/library/:am/:im", (req, res) => {
   });
 })*/
 app.get("/library/:im", (req, res) => {
+        var q = req.query.q;
+      let end = [];
   switch ("" + req.params.im) {
     default:
       res.render(`blog-parent`, {
@@ -132,9 +134,7 @@ app.get("/library/:im", (req, res) => {
         page: req.params.im
       });
       break;
-    case "search":
-        let end = [];
-    
+    case "search":    
         const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).map(x => x.name)
         let outp;
         folders.forEach(folder => {
