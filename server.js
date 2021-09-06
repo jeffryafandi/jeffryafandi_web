@@ -62,7 +62,7 @@ app.get("/search", (req, res) => {
   var q = req.query.q;
   let end = [];
 
-  const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true })
+  const folders = fs.readdirSync(__dirname + `/views/library`, { withFileTypes: true }).map(x => x.name)
   let outp;
   folders.forEach(folder => {
     let fol = fs.readdirSync(__dirname + `/views/library/${folder}`).filter(x => x !== "0.md")
