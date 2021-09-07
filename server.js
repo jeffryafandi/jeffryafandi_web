@@ -140,12 +140,12 @@ app.get("/library", (req, res) => {
   //.     Jangan tambahin code dibawah sini ._.
   res.render("library", {
     blog: function(input) {
-      let abc = fs.readdirSync(__dirname + '/views/library', { withFileTypes: true }).filter(x => x.startsWith(input)).map(x => x.name)
+      let abc = fs.readdirSync(__dirname + '/views/library').filter(x => x.startsWith(input))
       let result = " ";
       if (abc.length > 0) {
         for (b of abc) {
-
-          result += `<div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/${b}'>${upLet(b.replace(/-/gi,' '))}</a></div></div>`
+let bb = ''+b
+          result += `<div class='win-item'><div class='win-title'><a title='Because I Like You' class="link-info" href='https://fyy.my.id/library/${bb}'>${upLet(bb.replace(/-/gi,' '))}</a></div></div>`
         }
       }; //`
       return result;
