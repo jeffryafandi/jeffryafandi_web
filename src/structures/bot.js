@@ -8,8 +8,6 @@ class bot extends Client {
   constructor(opt) {
     super(opt);
     this.keepAlive = new KeepAlive(this, 30);
-    this.server = new ServerListener(process.env.PORT || 3000, resolve(__dirname, "../../src"));
-    this.server.run();
     this.commands = mdl.commands;
     this.helps = mdl.helps;
     this.aliases = mdl.aliases;
