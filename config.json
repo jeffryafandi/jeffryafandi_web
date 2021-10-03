@@ -1,6 +1,16 @@
 {
-  "maintenance": {
-    "status": false,
-    "end": "Feb 30, 2021 00:00:00"
+  "prefix": "r.",
+  "userid": "847419272111325206",
+  "serverid": "769938499116990504",
+  "hastebin": "https://haste.zann.my.id",
+  "panel": "https://game.hosting.raznar.id/",
+  "embed": {
+    "color": "GREEN",
+    "footer": "©2021 Raznar Hosting"
+  },
+  "env": {
+    "mongoose": "mongodb+srv://admin:u8suEPkAONkfg8DC@cluster0.57uru.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "owner_id": ["824772882453364806", "325258033523458049", "859684650632871946", "760381320919908353", "536379400686665778"],
+    "staff_id": []
   }
 }

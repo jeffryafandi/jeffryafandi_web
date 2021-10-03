@@ -2,7 +2,6 @@ const http = require("http"),
   express = require("express"),
   app = express(),
   path = require("path"),
-  config = require("./config.json"),
   fs = require('fs'),
   matter = require('gray-matter');
 var bodyParser = require("body-parser");
@@ -213,3 +212,61 @@ process.on("unhandledRejection", (reason, promise) => {
     reason.message
   );
 });
+
+// For discord Bot
+const bot = require("./src/structures/bot");
+const config = require("./config.json")
+const { Client, Collection, Intents } = require('discord.js');
+
+const client = new bot({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+
+client.once('ready', () => {
+  console.log(`Logged in as ${client.user.tag}`);
+  client.user.setActivity(`Raznar Servers`, { type: "WATCHING" });
+});
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+
+/* 
+	assumes client is available in this context and that
+ 	client#commands exists according to earlier guide sections
+*/
+const commands = [];
+const commandFiles = fs.readdirSync('./src/interactions').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+  const command = require(`./src/interactions/${file}`);
+  commands.push(command.data.toJSON());
+}
+
+const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
+
+(async () => {
+  try {
+    console.log('[INFO] Refreshing application commands.');
+
+    await rest.put(Routes.applicationGuildCommands(config.userid, config.serverid), { body: commands }, );
+
+    console.log('[INFO] Successfully reloaded application commands.');
+  } catch (error) {
+    console.error(error);
+  }
+})();
+
+/*.    DONT TOUCH THIS CODE   */
+
+process.on("uncaughtException", (err) => {
+  console.log("Uncaught Exception: " + err);
+  process.exit(1);
+});
+process.on("unhandledRejection", (reason, promise) => {
+  console.log(
+    "[FATAL] Possibly Unhandled Rejection at: Promise ",
+    promise,
+    " reason: ",
+    reason.message
+  );
+});
+
+require('./src/structures/events')(client)
+client.login(process.env.TOKEN)
