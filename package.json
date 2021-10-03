@@ -21,17 +21,7 @@
     "body-parser": "*",
     "ejs": "*",
     "gray-matter": "*",
-    "heroku": "*",
-    "discord.js": "*",
-    "moment": "^2.29.1",
-    "axios": "*",
-    "node-superfetch": "^0.1.11",
-    "pretty-ms": "*",
-    "child_process": "*",
-    "discord-api-types": "*",
-    "@discordjs/rest": "*",
-    "@discordjs/builders": "*",
-    "ractyl": "*"
+    "heroku": "*"
   },
   "engines": {
     "node": "14.x",
